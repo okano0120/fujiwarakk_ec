@@ -8,80 +8,167 @@
     });
     </script>
     
-    <div class="p-popup-option-tbl">
-      <div>
+    <div class="fixed inset-0 bg-black/20 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-auto border border-gray-200">
         <{if $option_num == 1}>
-          <h1 class="c-ttl-main">
-            <{$product.name}>の詳細情報
-          </h1>
-          <div>
-            <table class="table table-bordered">
-              <tr>
-                <{section name=num loop=$option_value[0]}>
-                  <th><{$option_value[0][num].name}></th>
-                <{/section}>
-              </tr>
-              <tr>
-                <{section name=num loop=$option_item[0]}>
-                  <td>
-                    <{if $members_login_flg == true && $option_item[0][num].discount_flg == true}>
-                      <{* 通常販売価格 *}>
-                      <div class="option-regularprice"><{$option_item[0][num].regular_price}></div>
-                    <{/if}>
-                    <{* 販売価格 *}>
-                    <div class="option-price"><{$option_item[0][num].price}></div>
-                    <{if $members_login_flg == true && $option_item[0][num].discount_flg == true}>
-                      <{* 割引率 *}>
-                      <div class="option-discount"><{$option_item[0][num].discount_rate}>OFF!!</div>
-                    <{/if}>
-                    <{if $option_item[0][num].d_flg == true}>
-                      <div class="option-stock"><{$option_item[0][num].d_stk}></div>
-                    <{/if}>
-                  </td>
-                <{/section}>
-              </tr>
-            </table>
+          <div class="p-6">
+            <h1 class="text-2xl font-bold text-sdgs-navy mb-6 text-center">
+              <span class="bg-gradient-to-r from-sdgs-navy to-sdgs-blue bg-clip-text text-transparent">
+                <{$product.name}>の詳細情報
+              </span>
+            </h1>
+            <div class="overflow-x-auto">
+              <table class="w-full border-collapse rounded-lg overflow-hidden shadow-lg">
+                <thead>
+                  <tr class="bg-gradient-to-r from-sdgs-light-blue to-sdgs-blue">
+                    <{section name=num loop=$option_value[0]}>
+                      <th class="px-4 py-3 text-white font-semibold text-center border-r border-white/20 last:border-r-0">
+                        <{$option_value[0][num].name}>
+                      </th>
+                    <{/section}>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="bg-white hover:bg-gray-50 transition-colors duration-200">
+                    <{section name=num loop=$option_item[0]}>
+                      <td class="px-4 py-4 text-center border-r border-gray-200 last:border-r-0 relative">
+                        <{if $members_login_flg == true && $option_item[0][num].discount_flg == true}>
+                          <{* 通常販売価格 *}>
+                          <div class="text-sm text-gray-500 line-through mb-1">
+                            <{$option_item[0][num].regular_price}>
+                          </div>
+                        <{/if}>
+                        <{* 販売価格 *}>
+                        <div class="inline-block px-3 py-1 rounded-full text-white font-bold text-sm shadow-md transform hover:scale-105 transition-transform duration-200 bg-sdgs-orange">
+                          <{$option_item[0][num].price}>
+                        </div>
+                        <{if $members_login_flg == true && $option_item[0][num].discount_flg == true}>
+                          <{* 割引率 *}>
+                          <div class="absolute -top-2 -right-2 bg-sdgs-bright-orange text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg animate-pulse">
+                            <{$option_item[0][num].discount_rate}>OFF!!
+                          </div>
+                        <{/if}>
+                        <{if $option_item[0][num].d_flg == true}>
+                          <div class="mt-2 text-xs text-sdgs-green font-medium">
+                            <{$option_item[0][num].d_stk}>
+                          </div>
+                        <{/if}>
+                      </td>
+                    <{/section}>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         <{elseif $option_num == 2}>
-          <h1 class="c-ttl-main">
-            <{$product.name}>の詳細情報
-          </h1>
-          <div>
-            <table class="table table-bordered txt_c">
-              <tr>
-                <th>&nbsp;</th>
-                <{section name=num loop=$option_value[0]}>
-                  <th><{$option_value[0][num].name}></th>
-                <{/section}>
-              </tr>
-              <{section name=num loop=$option_value[1]}>
-                <tr>
-                  <th><{$option_value[1][num].name}></th>
-                  <{section name=num2 loop=$option_item[num]}>
-                    <td>
-                      <{if $members_login_flg == true && $option_item[num][num2].discount_flg == true}>
-                        <{* 通常販売価格 *}>
-                        <div class="option-regularprice"><{$option_item[num][num2].regular_price}></div>
-                      <{/if}>
-                      <{* 販売価格 *}>
-                      <div class="option-price"><{$option_item[num][num2].price}></div>
-                      <{if $members_login_flg == true && $option_item[num][num2].discount_flg == true}>
-                        <{* 割引率 *}>
-                        <div class="option-discount"><{$option_item[num][num2].discount_rate}>OFF!!</div>
-                      <{/if}>
-                      <{if $option_item[num][num2].d_flg == true}>
-                        <div class="option-stock"><{$option_item[num][num2].d_stk}></div>
-                      <{/if}>
-                    </td>
+          <div class="p-6">
+            <h1 class="text-2xl font-bold text-sdgs-navy mb-6 text-center">
+              <span class="bg-gradient-to-r from-sdgs-navy to-sdgs-blue bg-clip-text text-transparent">
+                <{$product.name}>の詳細情報
+              </span>
+            </h1>
+            <div class="overflow-x-auto">
+              <table class="w-full border-collapse rounded-lg overflow-hidden shadow-lg">
+                <thead>
+                  <tr class="bg-gradient-to-r from-sdgs-light-blue to-sdgs-blue">
+                    <th class="px-4 py-3 text-white font-semibold text-center border-r border-white/20">&nbsp;</th>
+                    <{section name=num loop=$option_value[0]}>
+                      <th class="px-4 py-3 text-white font-semibold text-center border-r border-white/20 last:border-r-0">
+                        <{$option_value[0][num].name}>
+                      </th>
+                    <{/section}>
+                  </tr>
+                </thead>
+                <tbody>
+                  <{section name=num loop=$option_value[1]}>
+                    <tr class="bg-white hover:bg-gray-50 transition-colors duration-200 border-b border-gray-100 last:border-b-0">
+                      <th class="px-4 py-4 bg-gradient-to-r from-sdgs-yellow to-sdgs-orange text-white font-semibold text-center border-r border-gray-200">
+                        <{$option_value[1][num].name}>
+                      </th>
+                      <{section name=num2 loop=$option_item[num]}>
+                        <td class="px-4 py-4 text-center border-r border-gray-200 last:border-r-0 relative">
+                          <{if $members_login_flg == true && $option_item[num][num2].discount_flg == true}>
+                            <{* 通常販売価格 *}>
+                            <div class="text-sm text-gray-500 line-through mb-1">
+                              <{$option_item[num][num2].regular_price}>
+                            </div>
+                          <{/if}>
+                          <{* 販売価格 *}>
+                          <{assign var="color_index" value=($smarty.section.num.index * 10 + $smarty.section.num2.index) % 8}>
+                          <{if $color_index == 0}>
+                            <div class="inline-block px-3 py-1 rounded-full text-white font-bold text-sm shadow-md transform hover:scale-105 transition-transform duration-200 bg-sdgs-red">
+                              <{$option_item[num][num2].price}>
+                            </div>
+                          <{elseif $color_index == 1}>
+                            <div class="inline-block px-3 py-1 rounded-full text-white font-bold text-sm shadow-md transform hover:scale-105 transition-transform duration-200 bg-sdgs-orange">
+                              <{$option_item[num][num2].price}>
+                            </div>
+                          <{elseif $color_index == 2}>
+                            <div class="inline-block px-3 py-1 rounded-full text-white font-bold text-sm shadow-md transform hover:scale-105 transition-transform duration-200 bg-sdgs-yellow">
+                              <{$option_item[num][num2].price}>
+                            </div>
+                          <{elseif $color_index == 3}>
+                            <div class="inline-block px-3 py-1 rounded-full text-white font-bold text-sm shadow-md transform hover:scale-105 transition-transform duration-200 bg-sdgs-green">
+                              <{$option_item[num][num2].price}>
+                            </div>
+                          <{elseif $color_index == 4}>
+                            <div class="inline-block px-3 py-1 rounded-full text-white font-bold text-sm shadow-md transform hover:scale-105 transition-transform duration-200 bg-sdgs-light-blue">
+                              <{$option_item[num][num2].price}>
+                            </div>
+                          <{elseif $color_index == 5}>
+                            <div class="inline-block px-3 py-1 rounded-full text-white font-bold text-sm shadow-md transform hover:scale-105 transition-transform duration-200 bg-sdgs-purple">
+                              <{$option_item[num][num2].price}>
+                            </div>
+                          <{elseif $color_index == 6}>
+                            <div class="inline-block px-3 py-1 rounded-full text-white font-bold text-sm shadow-md transform hover:scale-105 transition-transform duration-200 bg-sdgs-pink">
+                              <{$option_item[num][num2].price}>
+                            </div>
+                          <{else}>
+                            <div class="inline-block px-3 py-1 rounded-full text-white font-bold text-sm shadow-md transform hover:scale-105 transition-transform duration-200 bg-sdgs-bright-orange">
+                              <{$option_item[num][num2].price}>
+                            </div>
+                          <{/if}>
+                          <{if $members_login_flg == true && $option_item[num][num2].discount_flg == true}>
+                            <{* 割引率 *}>
+                            <div class="absolute -top-2 -right-2 bg-sdgs-bright-orange text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg animate-pulse">
+                              <{$option_item[num][num2].discount_rate}>OFF!!
+                            </div>
+                          <{/if}>
+                          <{if $option_item[num][num2].d_flg == true}>
+                            <div class="mt-2 text-xs text-sdgs-green font-medium">
+                              <{$option_item[num][num2].d_stk}>
+                            </div>
+                          <{/if}>
+                        </td>
+                      <{/section}>
+                    </tr>
                   <{/section}>
-                </tr>
-              <{/section}>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
         <{else}>
-          <p class="mar_t_50 mar_b_50 txt_c txt_18">オプション情報がありません。</p>
+          <div class="p-12 text-center">
+            <div class="mb-6">
+              <div class="w-16 h-16 mx-auto bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+              </div>
+              <p class="text-lg text-gray-600">オプション情報がありません。</p>
+            </div>
+          </div>
         <{/if}>
-        <p class="txt_c"><a href="javascript:window.close();" class="btn">閉じる</a></p>
+        <div class="border-t border-gray-200 p-6 bg-gray-50 rounded-b-xl">
+          <div class="text-center">
+            <a href="javascript:window.close();" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-sdgs-navy to-sdgs-blue text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 hover:from-sdgs-blue hover:to-sdgs-light-blue">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+              閉じる
+            </a>
+          </div>
+        </div>
       </div>
     </div>
     

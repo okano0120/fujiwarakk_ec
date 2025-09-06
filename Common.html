@@ -138,6 +138,23 @@
 <script src="https://img.shop-pro.jp/tmpl_js/86/jquery.tile.js"></script>
 <script src="https://img.shop-pro.jp/tmpl_js/86/jquery.skOuterClick.js"></script>
 
+<script>
+window.onload = function()
+{
+    var disableFileName = "colormekit-responsive.css"; // 無効にするcssのファイル名
+    for(var i = 0; i < document.styleSheets.length; i++) {
+        // ファイルパス（フルパス）
+        var styleSheetPath = document.styleSheets[i].href;
+        // フルパスからファイル名を抽出
+        var fileName = styleSheetPath.substring(styleSheetPath.lastIndexOf('/')+1, styleSheetPath.length);
+        if (fileName === disableFileName) {
+            // 無効にするファイル名なので無効にする
+            document.styleSheets[i].disabled = true;
+        }
+    }
+};
+</script>
+
 <!-- ヘッダー -->
 <header class="bg-white shadow-xl relative">
   <div class="max-w-7xl mx-auto px-4 relative">

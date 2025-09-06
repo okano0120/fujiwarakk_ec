@@ -106,150 +106,196 @@
         <{/if}>
         <!-- // 小グループリスト -->
         <{if $productlist_num != 0}>
-          <div class="p-item-list-head">
-            <div class="p-item-list-num">
-              全<{$productlist_num}>商品
-            </div>
-            <!-- ソート -->
-            <ul class="p-item-sort-list">
-              <li class="p-item-sort-list__item">
-              <{if $productlist_sort_now != ""}>
-                <a href="<{$productlist_sort_def}>">おすすめ順</a>
-                <{else}>
-                <span>おすすめ順</span>
-              <{/if}>
-              </li>
-              <li class="p-item-sort-list__item">
-              <{if $productlist_sort_now != "p"}>
-                <a href="<{$productlist_sort_price}>">価格順</a>
-                <{else}>
-                <span>価格順</span>
-              <{/if}>
-              </li>
-              <li class="p-item-sort-list__item">
-              <{if $productlist_sort_now != "n"}>
-                <a href="<{$productlist_sort_new}>">新着順</a>
-                <{else}>
-                <span>新着順</span>
-              <{/if}>
-              </li>
-            </ul>
-            <!-- // ソート -->
-          </div><!-- /.p-item-list-head -->
-          <!-- 商品リスト -->
-          <ul class="c-item-list">
-            <{section name=num loop=$productlist}>
-            <li class="c-item-list__item">
-              <div class="c-item-list__img u-img-scale">
-                <a href="<{$productlist[num].link_url}>">
-                  <{if $productlist[num].img_url != ""}>
-                  <img src="<{$productlist[num].img_url}>" alt="<{$productlist[num].name|escape:'html'}>" />
-                  <{else}>
-                  <img src="https://img.shop-pro.jp/tmpl_img/86/no-image.jpg" alt="<{$productlist[num].name|escape:'html'}>" />
-                  <{/if}>
-                </a>
+          <div class="max-w-7xl mx-auto px-4 py-8">
+            <div class="text-center mb-12">
+              <h2 class="mb-6">
+                <span class="block text-3xl font-bold bg-gradient-to-r from-sdgs-navy to-sdgs-blue bg-clip-text text-transparent mb-3">
+                  PRODUCTS
+                </span>
+                <span class="text-lg text-gray-600">商品一覧</span>
+              </h2>
+              <div class="flex justify-center space-x-2 mb-8">
+                <div class="w-4 h-1 bg-sdgs-red rounded-full"></div>
+                <div class="w-4 h-1 bg-sdgs-orange rounded-full"></div>
+                <div class="w-4 h-1 bg-sdgs-yellow rounded-full"></div>
+                <div class="w-4 h-1 bg-sdgs-green rounded-full"></div>
+                <div class="w-4 h-1 bg-sdgs-light-blue rounded-full"></div>
+                <div class="w-4 h-1 bg-sdgs-blue rounded-full"></div>
+                <div class="w-4 h-1 bg-sdgs-purple rounded-full"></div>
               </div>
-              <div class="c-item-list__txt">
-                <div class="c-item-list__ttl">
+            </div>
+            
+            <div class="p-item-list-head mb-8">
+              <div class="p-item-list-num text-center text-gray-600 mb-4">
+                全<{$productlist_num}>商品
+              </div>
+              <!-- ソート -->
+              <ul class="p-item-sort-list flex justify-center space-x-6">
+                <li class="p-item-sort-list__item">
+                <{if $productlist_sort_now != ""}>
+                  <a href="<{$productlist_sort_def}>" class="text-sdgs-blue hover:text-sdgs-green transition-colors">おすすめ順</a>
+                  <{else}>
+                  <span class="text-sdgs-green font-medium">おすすめ順</span>
+                <{/if}>
+                </li>
+                <li class="p-item-sort-list__item">
+                <{if $productlist_sort_now != "p"}>
+                  <a href="<{$productlist_sort_price}>" class="text-sdgs-blue hover:text-sdgs-green transition-colors">価格順</a>
+                  <{else}>
+                  <span class="text-sdgs-green font-medium">価格順</span>
+                <{/if}>
+                </li>
+                <li class="p-item-sort-list__item">
+                <{if $productlist_sort_now != "n"}>
+                  <a href="<{$productlist_sort_new}>" class="text-sdgs-blue hover:text-sdgs-green transition-colors">新着順</a>
+                  <{else}>
+                  <span class="text-sdgs-green font-medium">新着順</span>
+                <{/if}>
+                </li>
+              </ul>
+              <!-- // ソート -->
+            </div><!-- /.p-item-list-head -->
+          <!-- 商品リスト -->
+          <style>
+          .price-badge-0 { background-color: var(--sdgs-red); }
+          .price-badge-1 { background-color: var(--sdgs-orange); }
+          .price-badge-2 { background-color: var(--sdgs-yellow); color: var(--sdgs-dark-blue); }
+          .price-badge-3 { background-color: var(--sdgs-green); }
+          .price-badge-4 { background-color: var(--sdgs-light-blue); }
+          .price-badge-5 { background-color: var(--sdgs-purple); }
+          .price-badge-6 { background-color: var(--sdgs-pink); }
+          .price-badge-7 { background-color: var(--sdgs-bright-orange); }
+          </style>
+          <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-4">
+            <{section name=num loop=$productlist}>
+            <li class="group">
+              <div class="bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative">
+                <div class="aspect-square overflow-hidden rounded-t-xl">
                   <a href="<{$productlist[num].link_url}>">
-                    <{$productlist[num].name}>
+                    <{if $productlist[num].img_url != ""}>
+                    <img src="<{$productlist[num].img_url}>" alt="<{$productlist[num].name|escape:'html'}>" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    <{else}>
+                    <img src="https://img.shop-pro.jp/tmpl_img/86/no-image.jpg" alt="<{$productlist[num].name|escape:'html'}>" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    <{/if}>
                   </a>
                 </div>
+                
                 <{if !$productlist[num].soldout_flg}>
-                <div class="c-item-list__price<{if $members_login_flg && $productlist[num].discount_flg}> is-discount<{/if}>">
-                  <{* 販売価格（ログイン時は会員価格） *}>
-                  <{$productlist[num].price}>
-                  <{* 割引率（ログイン時、通常販売価格と会員価格が異なる場合のみ） *}>
-                  <{if $members_login_flg && $productlist[num].discount_flg}><{$productlist[num].discount_rate}>OFF<{/if}>
+                <!-- カラフルな価格バッジ -->
+                <div class="absolute top-3 right-3 price-badge-<{$smarty.section.num.index % 8}> text-white px-3 py-1 rounded-full shadow-lg transform rotate-12 group-hover:rotate-0 transition-transform duration-300">
+                  <span class="font-bold text-sm"><{$productlist[num].price}></span>
                 </div>
-                <{* 通常販売価格（ログイン時、通常販売価格と会員価格が異なる場合のみ） *}>
-                <{if $members_login_flg && $productlist[num].discount_flg}>
-                <div class="c-item-list__price is-strikethrough">
-                  <{$productlist[num].regular_price}>
-                </div>
-                <{/if}>
                 <{else}>
                 <{* 売り切れの表記 *}>
-                <div class="c-item-list__price is-soldout">
-                  SOLD OUT
+                <div class="absolute top-3 right-3 bg-gray-500 text-white px-3 py-1 rounded-full shadow-lg">
+                  <span class="font-bold text-sm">SOLD OUT</span>
                 </div>
                 <{/if}>
-                <{* 簡易説明文 *}>
-                <{if $productlist[num].s_expl != ""}>
-                <div class="c-item-list__expl">
-                  <{$productlist[num].s_expl}>
+                
+                <div class="p-5">
+                  <div class="text-center mb-4">
+                    <a href="<{$productlist[num].link_url}>" class="text-gray-700 hover:text-sdgs-green transition-colors font-medium text-sm leading-relaxed">
+                      <{$productlist[num].name}>
+                    </a>
+                  </div>
+                  
+                  <{if !$productlist[num].soldout_flg}>
+                  <{if $members_login_flg && $productlist[num].discount_flg}>
+                  <div class="text-center mb-2">
+                    <div class="text-sdgs-bright-orange font-bold text-sm">
+                      <{$productlist[num].discount_rate}>OFF
+                    </div>
+                  </div>
+                  <{/if}>
+                  <{* 通常販売価格（ログイン時、通常販売価格と会員価格が異なる場合のみ） *}>
+                  <{if $members_login_flg && $productlist[num].discount_flg}>
+                  <div class="text-center mb-2">
+                    <div class="text-gray-400 line-through text-xs">
+                      <{$productlist[num].regular_price}>
+                    </div>
+                  </div>
+                  <{/if}>
+                  <{/if}>
+                  
+                  <{* 簡易説明文 *}>
+                  <{if $productlist[num].s_expl != ""}>
+                  <div class="text-center text-gray-600 text-xs mt-2">
+                    <{$productlist[num].s_expl}>
+                  </div>
+                  <{/if}>
                 </div>
-                <{/if}>
               </div>
             </li>
             <{/section}>
           </ul>
           <!-- // 商品リスト -->
+          </div>
           <!-- ページャー -->
           <{if $productlist_total_pages != 1}>
-            <div class="c-pager">
-              <div class="c-pager__total">
-                全<span><{$productlist_num}></span>商品中 <span><{$productlist_snum}> - <{$productlist_enum}></span>表示
+            <div class="max-w-7xl mx-auto px-4 py-8">
+              <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+                <div class="text-center text-gray-600 mb-6">
+                  全<span class="font-bold text-sdgs-blue"><{$productlist_num}></span>商品中 <span class="font-bold text-sdgs-green"><{$productlist_snum}> - <{$productlist_enum}></span>表示
+                </div>
+                <ul class="flex justify-center items-center space-x-2 flex-wrap">
+                  <li class="mb-2">
+                    <{if $productlist_prev_page != ""}>
+                    <a href="<{$productlist_prev_page}>" class="px-4 py-2 bg-sdgs-blue text-white rounded-lg hover:bg-sdgs-navy transition-colors">
+                      前へ
+                    </a>
+                    <{else}>
+                    <span class="px-4 py-2 bg-gray-300 text-gray-500 rounded-lg cursor-not-allowed">
+                      前へ
+                    </span>
+                    <{/if}>
+                  </li>
+                  <{section name=pager start=$productlist_first_page loop=$productlist_last_page+1}>
+                  <{if $smarty.section.pager.first && $smarty.section.pager.index > 1}>
+                  <li class="mb-2">
+                    <a href="<{$productlist_link_base}>" class="px-3 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">1</a>
+                  </li>
+                  <li class="mb-2">
+                    <span class="px-2 py-2 text-gray-500">...</span>
+                  </li>
+                  <{/if}>
+                  <{if $smarty.section.pager.index == $productlist_current_page}>
+                  <li class="mb-2">
+                    <span class="px-3 py-2 bg-sdgs-green text-white rounded-lg font-medium">
+                      <{$smarty.section.pager.index}>
+                    </span>
+                  </li>
+                  <{else}>
+                  <li class="mb-2">
+                    <a href="<{$productlist_link_base}>&page=<{$smarty.section.pager.index}>" class="px-3 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                      <{$smarty.section.pager.index}>
+                    </a>
+                  </li>
+                  <{/if}>
+                  <{if $smarty.section.pager.last && $smarty.section.pager.index < $productlist_total_pages}>
+                  <li class="mb-2">
+                    <span class="px-2 py-2 text-gray-500">...</span>
+                  </li>
+                  <li class="mb-2">
+                    <a href="<{$productlist_link_base}>&page=<{$productlist_total_pages}>" class="px-3 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                      <{$productlist_total_pages}>
+                    </a>
+                  </li>
+                  <{/if}>
+                  <{/section}>
+                  <li class="mb-2">
+                    <{if $productlist_next_page != ""}>
+                    <a href="<{$productlist_next_page}>" class="px-4 py-2 bg-sdgs-blue text-white rounded-lg hover:bg-sdgs-navy transition-colors">
+                      次へ
+                    </a>
+                    <{else}>
+                    <span class="px-4 py-2 bg-gray-300 text-gray-500 rounded-lg cursor-not-allowed">
+                      次へ
+                    </span>
+                    <{/if}>
+                  </li>
+                </ul>
               </div>
-              <ul class="c-pager-list">
-                <li class="c-pager-list__item is-visible">
-                  <{if $productlist_prev_page != ""}>
-                  <a href="<{$productlist_prev_page}>" class="c-pager-list__link is-prev">
-                    前へ
-                  </a>
-                  <{else}>
-                  <span class="c-pager-list__link is-prev is-disabled">
-                    前へ
-                  </span>
-                  <{/if}>
-                </li>
-                <{section name=pager start=$productlist_first_page loop=$productlist_last_page+1}>
-                <{if $smarty.section.pager.first && $smarty.section.pager.index > 1}>
-                <li class="c-pager-list__item">
-                  <a href="<{$productlist_link_base}>" class="c-pager-list__link">1</a>
-                </li>
-                <li class="c-pager-list__item">
-                  ...
-                </li>
-                <{/if}>
-                <{if $smarty.section.pager.index == $productlist_current_page}>
-                <li class="c-pager-list__item is-visible">
-                  <span class="c-pager-list__link is-disabled is-current">
-                    <{$smarty.section.pager.index}>
-                    <span class="c-pager-list__page">ページ目</span>
-                  </span>
-                </li>
-                <{else}>
-                <li class="c-pager-list__item">
-                  <a href="<{$productlist_link_base}>&page=<{$smarty.section.pager.index}>" class="c-pager-list__link">
-                    <{$smarty.section.pager.index}>
-                  </a>
-                </li>
-                <{/if}>
-                <{if $smarty.section.pager.last && $smarty.section.pager.index < $productlist_total_pages}>
-                <li class="c-pager-list__item">
-                  ...
-                </li>
-                <li class="c-pager-list__item">
-                  <a href="<{$productlist_link_base}>&page=<{$productlist_total_pages}>" class="c-pager-list__link">
-                    <{$productlist_total_pages}>
-                  </a>
-                </li>
-                <{/if}>
-                <{/section}>
-                <li class="c-pager-list__item is-visible">
-                  <{if $productlist_next_page != ""}>
-                  <a href="<{$productlist_next_page}>" class="c-pager-list__link is-next">
-                    次へ
-                  </a>
-                  <{else}>
-                  <span class="c-pager-list__link is-next is-disabled">
-                    次へ
-                  </span>
-                  <{/if}>
-                </li>
-              </ul>
-            </div><!-- /.c-pager-list -->
+            </div>
           <{/if}>
           <!-- // ページャー -->
         <{else}>

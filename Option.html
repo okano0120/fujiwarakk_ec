@@ -1,0 +1,87 @@
+<script type="text/javascript">
+    $(function(){
+      // viewport
+      var viewport = document.createElement('meta');
+      viewport.setAttribute('name', 'viewport');
+      viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0');
+      document.getElementsByTagName('head')[0].appendChild(viewport);
+    });
+    </script>
+    
+    <div class="p-popup-option-tbl">
+      <div>
+        <{if $option_num == 1}>
+          <h1 class="c-ttl-main">
+            <{$product.name}>の詳細情報
+          </h1>
+          <div>
+            <table class="table table-bordered">
+              <tr>
+                <{section name=num loop=$option_value[0]}>
+                  <th><{$option_value[0][num].name}></th>
+                <{/section}>
+              </tr>
+              <tr>
+                <{section name=num loop=$option_item[0]}>
+                  <td>
+                    <{if $members_login_flg == true && $option_item[0][num].discount_flg == true}>
+                      <{* 通常販売価格 *}>
+                      <div class="option-regularprice"><{$option_item[0][num].regular_price}></div>
+                    <{/if}>
+                    <{* 販売価格 *}>
+                    <div class="option-price"><{$option_item[0][num].price}></div>
+                    <{if $members_login_flg == true && $option_item[0][num].discount_flg == true}>
+                      <{* 割引率 *}>
+                      <div class="option-discount"><{$option_item[0][num].discount_rate}>OFF!!</div>
+                    <{/if}>
+                    <{if $option_item[0][num].d_flg == true}>
+                      <div class="option-stock"><{$option_item[0][num].d_stk}></div>
+                    <{/if}>
+                  </td>
+                <{/section}>
+              </tr>
+            </table>
+          </div>
+        <{elseif $option_num == 2}>
+          <h1 class="c-ttl-main">
+            <{$product.name}>の詳細情報
+          </h1>
+          <div>
+            <table class="table table-bordered txt_c">
+              <tr>
+                <th>&nbsp;</th>
+                <{section name=num loop=$option_value[0]}>
+                  <th><{$option_value[0][num].name}></th>
+                <{/section}>
+              </tr>
+              <{section name=num loop=$option_value[1]}>
+                <tr>
+                  <th><{$option_value[1][num].name}></th>
+                  <{section name=num2 loop=$option_item[num]}>
+                    <td>
+                      <{if $members_login_flg == true && $option_item[num][num2].discount_flg == true}>
+                        <{* 通常販売価格 *}>
+                        <div class="option-regularprice"><{$option_item[num][num2].regular_price}></div>
+                      <{/if}>
+                      <{* 販売価格 *}>
+                      <div class="option-price"><{$option_item[num][num2].price}></div>
+                      <{if $members_login_flg == true && $option_item[num][num2].discount_flg == true}>
+                        <{* 割引率 *}>
+                        <div class="option-discount"><{$option_item[num][num2].discount_rate}>OFF!!</div>
+                      <{/if}>
+                      <{if $option_item[num][num2].d_flg == true}>
+                        <div class="option-stock"><{$option_item[num][num2].d_stk}></div>
+                      <{/if}>
+                    </td>
+                  <{/section}>
+                </tr>
+              <{/section}>
+            </table>
+          </div>
+        <{else}>
+          <p class="mar_t_50 mar_b_50 txt_c txt_18">オプション情報がありません。</p>
+        <{/if}>
+        <p class="txt_c"><a href="javascript:window.close();" class="btn">閉じる</a></p>
+      </div>
+    </div>
+    

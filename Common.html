@@ -1,528 +1,808 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root {
+  --font-size: 14px;
+  --background: #ffffff;
+  --foreground: oklch(0.145 0 0);
+  --card: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #4c9f38;
+  --primary-foreground: oklch(1 0 0);
+  --secondary: #00689d;
+  --secondary-foreground: #ffffff;
+  --muted: #f5f7fa;
+  --muted-foreground: #717182;
+  --accent: #fd9d24;
+  --accent-foreground: #ffffff;
+  --destructive: #dd1367;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f8fafe;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: oklch(0.708 0 0);
+  
+  --sdgs-red: #e5243b;
+  --sdgs-dark-orange: #dda63a;
+  --sdgs-green: #4c9f38;
+  --sdgs-dark-red: #c5192d;
+  --sdgs-bright-red: #ff3a21;
+  --sdgs-light-blue: #26bde2;
+  --sdgs-yellow: #fcc30b;
+  --sdgs-purple: #a21942;
+  --sdgs-orange: #fd6925;
+  --sdgs-pink: #dd1367;
+  --sdgs-bright-orange: #fd9d24;
+  --sdgs-brown: #bf8b2e;
+  --sdgs-dark-green: #3f7e44;
+  --sdgs-blue: #0a97d9;
+  --sdgs-light-green: #56c02b;
+  --sdgs-navy: #00689d;
+  --sdgs-dark-blue: #19486a;
+}
+
+.bg-sdgs-red { background-color: var(--sdgs-red); }
+.bg-sdgs-dark-orange { background-color: var(--sdgs-dark-orange); }
+.bg-sdgs-green { background-color: var(--sdgs-green); }
+.bg-sdgs-dark-red { background-color: var(--sdgs-dark-red); }
+.bg-sdgs-bright-red { background-color: var(--sdgs-bright-red); }
+.bg-sdgs-light-blue { background-color: var(--sdgs-light-blue); }
+.bg-sdgs-yellow { background-color: var(--sdgs-yellow); }
+.bg-sdgs-purple { background-color: var(--sdgs-purple); }
+.bg-sdgs-orange { background-color: var(--sdgs-orange); }
+.bg-sdgs-pink { background-color: var(--sdgs-pink); }
+.bg-sdgs-bright-orange { background-color: var(--sdgs-bright-orange); }
+.bg-sdgs-brown { background-color: var(--sdgs-brown); }
+.bg-sdgs-dark-green { background-color: var(--sdgs-dark-green); }
+.bg-sdgs-blue { background-color: var(--sdgs-blue); }
+.bg-sdgs-light-green { background-color: var(--sdgs-light-green); }
+.bg-sdgs-navy { background-color: var(--sdgs-navy); }
+.bg-sdgs-dark-blue { background-color: var(--sdgs-dark-blue); }
+
+.text-sdgs-red { color: var(--sdgs-red); }
+.text-sdgs-dark-orange { color: var(--sdgs-dark-orange); }
+.text-sdgs-green { color: var(--sdgs-green); }
+.text-sdgs-dark-red { color: var(--sdgs-dark-red); }
+.text-sdgs-bright-red { color: var(--sdgs-bright-red); }
+.text-sdgs-light-blue { color: var(--sdgs-light-blue); }
+.text-sdgs-yellow { color: var(--sdgs-yellow); }
+.text-sdgs-purple { color: var(--sdgs-purple); }
+.text-sdgs-orange { color: var(--sdgs-orange); }
+.text-sdgs-pink { color: var(--sdgs-pink); }
+.text-sdgs-bright-orange { color: var(--sdgs-bright-orange); }
+.text-sdgs-brown { color: var(--sdgs-brown); }
+.text-sdgs-dark-green { color: var(--sdgs-dark-green); }
+.text-sdgs-blue { color: var(--sdgs-blue); }
+.text-sdgs-light-green { color: var(--sdgs-light-green); }
+.text-sdgs-navy { color: var(--sdgs-navy); }
+.text-sdgs-dark-blue { color: var(--sdgs-dark-blue); }
+
+.border-sdgs-red { border-color: var(--sdgs-red); }
+.border-sdgs-dark-orange { border-color: var(--sdgs-dark-orange); }
+.border-sdgs-green { border-color: var(--sdgs-green); }
+.border-sdgs-dark-red { border-color: var(--sdgs-dark-red); }
+.border-sdgs-bright-red { border-color: var(--sdgs-bright-red); }
+.border-sdgs-light-blue { border-color: var(--sdgs-light-blue); }
+.border-sdgs-yellow { border-color: var(--sdgs-yellow); }
+.border-sdgs-purple { border-color: var(--sdgs-purple); }
+.border-sdgs-orange { border-color: var(--sdgs-orange); }
+.border-sdgs-pink { border-color: var(--sdgs-pink); }
+.border-sdgs-bright-orange { border-color: var(--sdgs-bright-orange); }
+.border-sdgs-brown { border-color: var(--sdgs-brown); }
+.border-sdgs-dark-green { border-color: var(--sdgs-dark-green); }
+.border-sdgs-blue { border-color: var(--sdgs-blue); }
+.border-sdgs-light-green { border-color: var(--sdgs-light-green); }
+.border-sdgs-navy { border-color: var(--sdgs-navy); }
+.border-sdgs-dark-blue { border-color: var(--sdgs-dark-blue); }
+
+.hover\:bg-sdgs-red:hover { background-color: var(--sdgs-red); }
+.hover\:bg-sdgs-dark-orange:hover { background-color: var(--sdgs-dark-orange); }
+.hover\:bg-sdgs-green:hover { background-color: var(--sdgs-green); }
+.hover\:bg-sdgs-dark-red:hover { background-color: var(--sdgs-dark-red); }
+.hover\:bg-sdgs-bright-red:hover { background-color: var(--sdgs-bright-red); }
+.hover\:bg-sdgs-light-blue:hover { background-color: var(--sdgs-light-blue); }
+.hover\:bg-sdgs-yellow:hover { background-color: var(--sdgs-yellow); }
+.hover\:bg-sdgs-purple:hover { background-color: var(--sdgs-purple); }
+.hover\:bg-sdgs-orange:hover { background-color: var(--sdgs-orange); }
+.hover\:bg-sdgs-pink:hover { background-color: var(--sdgs-pink); }
+.hover\:bg-sdgs-bright-orange:hover { background-color: var(--sdgs-bright-orange); }
+.hover\:bg-sdgs-brown:hover { background-color: var(--sdgs-brown); }
+.hover\:bg-sdgs-dark-green:hover { background-color: var(--sdgs-dark-green); }
+.hover\:bg-sdgs-blue:hover { background-color: var(--sdgs-blue); }
+.hover\:bg-sdgs-light-green:hover { background-color: var(--sdgs-light-green); }
+.hover\:bg-sdgs-navy:hover { background-color: var(--sdgs-navy); }
+.hover\:bg-sdgs-dark-blue:hover { background-color: var(--sdgs-dark-blue); }
+
+.hover\:text-sdgs-red:hover { color: var(--sdgs-red); }
+.hover\:text-sdgs-dark-orange:hover { color: var(--sdgs-dark-orange); }
+.hover\:text-sdgs-green:hover { color: var(--sdgs-green); }
+.hover\:text-sdgs-dark-red:hover { color: var(--sdgs-dark-red); }
+.hover\:text-sdgs-bright-red:hover { color: var(--sdgs-bright-red); }
+.hover\:text-sdgs-light-blue:hover { color: var(--sdgs-light-blue); }
+.hover\:text-sdgs-yellow:hover { color: var(--sdgs-yellow); }
+.hover\:text-sdgs-purple:hover { color: var(--sdgs-purple); }
+.hover\:text-sdgs-orange:hover { color: var(--sdgs-orange); }
+.hover\:text-sdgs-pink:hover { color: var(--sdgs-pink); }
+.hover\:text-sdgs-bright-orange:hover { color: var(--sdgs-bright-orange); }
+.hover\:text-sdgs-brown:hover { color: var(--sdgs-brown); }
+.hover\:text-sdgs-dark-green:hover { color: var(--sdgs-dark-green); }
+.hover\:text-sdgs-blue:hover { color: var(--sdgs-blue); }
+.hover\:text-sdgs-light-green:hover { color: var(--sdgs-light-green); }
+.hover\:text-sdgs-navy:hover { color: var(--sdgs-navy); }
+.hover\:text-sdgs-dark-blue:hover { color: var(--sdgs-dark-blue); }
+</style>
 <script src="https://img.shop-pro.jp/tmpl_js/86/jquery.tile.js"></script>
 <script src="https://img.shop-pro.jp/tmpl_js/86/jquery.skOuterClick.js"></script>
 
 <!-- ヘッダー -->
-<div class="l-header">
-  <div class="l-header-main u-container">
-    <div class="l-header-main__in">
-      <div class="l-header-logo">
-        <h1 class="l-header-logo__img<{if $logo_type !== "image"}> class="is-txt"<{/if}>">
-          <a<{if $logo_type !== "image"}> class="l-header-logo__type-txt"<{/if}> href="<{$home_url}>"><{$logo}></a>
+<header class="bg-white shadow-xl relative">
+  <div class="max-w-7xl mx-auto px-4 relative">
+    <div class="flex items-center justify-between py-4">
+      <div class="flex-shrink-0">
+        <h1 class="<{if $logo_type !== "image"}> text-2xl font-bold text-sdgs-navy hover:text-sdgs-blue transition-all duration-300 relative group transform hover:scale-105<{/if}>">
+          <a<{if $logo_type !== "image"}> class="text-2xl font-bold text-sdgs-navy hover:text-sdgs-blue transition-all duration-300 relative group transform hover:scale-105"<{/if}> href="<{$home_url}>"><{$logo}></a>
+          <{if $logo_type !== "image"}>
+            <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sdgs-bright-orange transition-all duration-300 group-hover:w-full"></div>
+            <div class="absolute -top-1 -left-1 w-0 h-0 border-l-2 border-t-2 border-sdgs-yellow transition-all duration-300 group-hover:w-3 group-hover:h-3"></div>
+            <div class="absolute -top-1 -right-1 w-0 h-0 border-r-2 border-t-2 border-sdgs-orange transition-all duration-300 group-hover:w-3 group-hover:h-3"></div>
+          <{/if}>
         </h1>
         <{if $logo_type == "image"}>
-          <p class="l-header-logo__txt">
+          <p class="text-sm text-gray-600 mt-1">
             <{$shop_name}>
           </p>
         <{/if}>
       </div>
-      <div class="l-header-search">
-        <button class="l-header-search__btn js-mega-menu-btn js-search-btn">
-          <img src="https://img.shop-pro.jp/tmpl_img/86/icon-search.png" alt="検索" />
+      
+      <div class="hidden md:flex items-center space-x-3">
+        <button class="p-3 text-sdgs-blue hover:text-white hover:bg-sdgs-green rounded-full transition-all duration-300 border-2 border-sdgs-light-blue hover:border-sdgs-green transform hover:scale-110 hover:rotate-12 shadow-lg hover:shadow-xl js-mega-menu-btn js-search-btn" aria-label="検索">
+          <img src="https://img.shop-pro.jp/tmpl_img/86/icon-search.png" alt="検索" class="w-5 h-5" />
         </button>
-        <div class="l-header-search__contents js-mega-menu-contents">
-          <div class="l-header-search__box">
-            <form action="<{$product_search_url}>" method="GET" class="l-header-search__form">
-              <{$product_search_mode}>
-              <div class="l-header-search__input">
-                <input type="text" name="keyword" placeholder="商品検索" />
-              </div>
-              <button class="l-header-search__submit" type="submit">
-                <img src="https://img.shop-pro.jp/tmpl_img/86/icon-search.png" alt="送信" />
+        
+        <div class="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b-4 border-sdgs-orange shadow-2xl z-50 js-mega-menu-contents" style="display: none;">
+          <div class="max-w-7xl mx-auto p-4">
+            <div class="flex items-center">
+              <form action="<{$product_search_url}>" method="GET" class="flex-1 flex">
+                <{$product_search_mode}>
+                <div class="flex-1">
+                  <input type="text" name="keyword" placeholder="商品検索" class="w-full px-4 py-3 border-2 border-sdgs-light-blue rounded-l-xl focus:outline-none focus:ring-4 focus:ring-sdgs-yellow/50 focus:border-sdgs-orange text-sdgs-navy transition-all duration-300 bg-white shadow-inner" />
+                </div>
+                <button type="submit" class="px-6 py-3 bg-sdgs-orange hover:bg-sdgs-bright-orange text-white rounded-r-xl transition-all duration-300 shadow-lg transform hover:scale-105">
+                  <img src="https://img.shop-pro.jp/tmpl_img/86/icon-search.png" alt="送信" class="w-5 h-5" />
+                </button>
+              </form>
+              <button class="ml-4 p-2 text-sdgs-blue hover:text-white hover:bg-sdgs-pink rounded-full transition-all duration-300 transform hover:rotate-90 js-search-close" aria-label="閉じる">
+                <span class="block w-4 h-0.5 bg-current transform rotate-45 translate-y-0.5"></span>
+                <span class="block w-4 h-0.5 bg-current transform -rotate-45 -translate-y-0.5"></span>
               </button>
-            </form>
-            <button class="l-header-search__close js-search-close" type="submit" aria-label="閉じる">
-              <span></span>
-              <span></span>
-            </button>
+            </div>
           </div>
         </div>
-        <div class="l-header-cart">
-          <a href="<{$view_cart_url}>">
-            <img src="https://img.shop-pro.jp/tmpl_img/86/icon-cart.png" alt="カートを見る" />
-            <span class="p-global-header__cart-count">
+
+        <div class="relative">
+          <a href="<{$view_cart_url}>" class="p-3 text-sdgs-purple hover:text-white hover:bg-sdgs-pink rounded-full flex items-center transition-all duration-300 border-2 border-sdgs-purple hover:border-sdgs-pink transform hover:scale-110 shadow-lg hover:shadow-xl">
+            <img src="https://img.shop-pro.jp/tmpl_img/86/icon-cart.png" alt="カートを見る" class="w-5 h-5" />
+            <span class="ml-2 bg-sdgs-bright-orange text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-semibold shadow-md animate-bounce">
               <{$incart_total_count}>
             </span>
           </a>
         </div>
       </div>
-      <button class="l-menu-btn js-navi-open" aria-label="メニュー">
-        <span></span>
-        <span></span>
+
+      <button class="md:hidden p-2 text-sdgs-navy hover:text-white hover:bg-sdgs-blue rounded-full transition-all duration-300 border-2 border-sdgs-navy hover:border-sdgs-blue transform hover:scale-110 js-navi-open" aria-label="メニュー">
+        <span class="block w-6 h-0.5 bg-current mb-1 transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-current transition-all duration-300"></span>
       </button>
-    </div><!-- /.l-header-main-top -->
-    <div class="l-main-navi">
-      <div class="l-main-navi__in">
-        <ul class="l-main-navi-list">
+    </div>
+    <div class="max-w-7xl mx-auto px-4 py-8 md:hidden">
+      <nav class="bg-white/95 backdrop-blur-md border-t border-sdgs-yellow/50 l-main-navi">
+        <div class="px-4 py-4 space-y-4">
+          <div class="flex" style="display: none;">
+            <form action="<{$product_search_url}>" method="GET" class="flex w-full">
+              <{$product_search_mode}>
+              <input type="text" name="keyword" placeholder="商品検索" class="flex-1 px-4 py-2 border-2 border-sdgs-light-blue rounded-l-xl focus:outline-none focus:ring-2 focus:ring-sdgs-yellow text-sdgs-navy bg-white" />
+              <button type="submit" class="px-4 py-2 bg-sdgs-orange text-white rounded-r-xl transition-all duration-300">
+                <img src="https://img.shop-pro.jp/tmpl_img/86/icon-search.png" alt="送信" class="w-5 h-5" />
+              </button>
+            </form>
+          </div>
+
+          <div class="flex items-center space-x-2 py-2 text-sdgs-purple hover:text-sdgs-pink transition-colors">
+            <a href="<{$view_cart_url}>" class="flex items-center space-x-2">
+              <img src="https://img.shop-pro.jp/tmpl_img/86/icon-cart.png" alt="カートを見る" class="w-5 h-5" />
+              <span>カートを見る (<{$incart_total_count}>)</span>
+            </a>
+          </div>
+
+          <ul class="space-y-3">
+            <{section name=num loop=$category}>
+            <{if $smarty.section.num.first }>
+            <li class="border-b border-gray-200 pb-3">
+              <div class="text-sm font-semibold text-sdgs-navy mb-2">
+                CATEGORY
+              </div>
+              <button class="w-full text-left py-2 px-3 bg-sdgs-green hover:bg-sdgs-dark-green text-white rounded-lg transition-all duration-300 js-mega-menu-btn">
+                CATEGORY
+              </button>
+              <div class="mt-2 space-y-1 js-mega-menu-contents" style="display: none;">
+                <{/if}>
+                <a href="<{$category[num].link_url}>" class="block py-2 px-4 text-gray-600 hover:text-white hover:bg-sdgs-blue rounded-lg transition-all duration-300">
+                  <{$category[num].name}>
+                </a>
+                <{if $smarty.section.num.last }>
+              </div>
+            </li>
+            <{/if}>
+            <{/section}>
+            
+            <{section name=num loop=$group}>
+            <{if $smarty.section.num.first }>
+            <li class="border-b border-gray-200 pb-3">
+              <div class="text-sm font-semibold text-sdgs-navy mb-2">
+                GROUP
+              </div>
+              <button class="w-full text-left py-2 px-3 bg-sdgs-orange hover:bg-sdgs-bright-orange text-white rounded-lg transition-all duration-300 js-mega-menu-btn">
+                GROUP
+              </button>
+              <div class="mt-2 space-y-1 js-mega-menu-contents" style="display: none;">
+                <{/if}>
+                <a href="<{$group[num].link_url}>" class="block py-2 px-4 text-gray-600 hover:text-white hover:bg-sdgs-purple rounded-lg transition-all duration-300">
+                  <{$group[num].name}>
+                </a>
+                <{if $smarty.section.num.last }>
+              </div>
+            </li>
+            <{/if}>
+            <{/section}>
+            
+            <{if $free_area_flg}>
+            <li class="border-b border-gray-200 pb-3">
+              <div class="text-sm font-semibold text-sdgs-navy mb-2">
+                CONTENTS
+              </div>
+              <button class="w-full text-left py-2 px-3 bg-sdgs-pink hover:bg-sdgs-red text-white rounded-lg transition-all duration-300 js-mega-menu-btn">
+                CONTENTS
+              </button>
+              <div class="mt-2 space-y-1 js-mega-menu-contents" style="display: none;">
+                <{section name=num loop=$freepage}>
+                <a href="<{$freepage[num].link_url}>" class="block py-2 px-4 text-gray-600 hover:text-white hover:bg-sdgs-yellow hover:text-gray-800 rounded-lg transition-all duration-300">
+                  <{$freepage[num].page_title}>
+                </a>
+                <{/section}>
+              </div>
+            </li>
+            <{/if}>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    
+    <div class="hidden md:block max-w-7xl mx-auto px-4 py-8">
+      <nav>
+        <ul class="grid grid-cols-3 gap-4">
           <{section name=num loop=$category}>
           <{if $smarty.section.num.first }>
-          <li class="l-main-navi-list__item">
-            <div class="l-main-navi-list__ttl">
-              CATEGORY
-            </div>
-            <button class="l-main-navi-list__link js-mega-menu-btn">
+          <li class="relative">
+            <button class="block text-white rounded-xl px-4 py-3 text-center transition-all duration-300 transform hover:scale-105 hover:shadow-lg border-2 bg-sdgs-green hover:bg-sdgs-dark-green border-sdgs-green hover:border-sdgs-dark-green w-full js-mega-menu-btn">
               CATEGORY
             </button>
-            <div class="l-mega-menu js-mega-menu-contents">
-              <ul class="l-mega-menu-list">
+            <div class="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-2 border-sdgs-green shadow-2xl z-50 rounded-xl mt-2 js-mega-menu-contents" style="display: none;">
+              <ul class="p-4 space-y-2">
                 <{/if}>
-                <li class="l-mega-menu-list__item">
-                  <a class="l-mega-menu-list__link" href="<{$category[num].link_url}>">
+                <li>
+                  <a href="<{$category[num].link_url}>" class="block py-2 px-3 text-gray-600 hover:text-white hover:bg-sdgs-green rounded-lg transition-all duration-300">
                     <{$category[num].name}>
                   </a>
                 </li>
                 <{if $smarty.section.num.last }>
               </ul>
-            </div><!-- /.l-mega-menu -->
+            </div>
           </li>
           <{/if}>
           <{/section}>
+          
           <{section name=num loop=$group}>
           <{if $smarty.section.num.first }>
-          <li class="l-main-navi-list__item">
-            <div class="l-main-navi-list__ttl">
-              GROUP
-            </div>
-            <button class="l-main-navi-list__link js-mega-menu-btn">
+          <li class="relative">
+            <button class="block text-white rounded-xl px-4 py-3 text-center transition-all duration-300 transform hover:scale-105 hover:shadow-lg border-2 bg-sdgs-blue hover:bg-sdgs-navy border-sdgs-blue hover:border-sdgs-navy w-full js-mega-menu-btn">
               GROUP
             </button>
-            <div class="l-mega-menu js-mega-menu-contents">
-              <ul class="l-mega-menu-list">
+            <div class="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-2 border-sdgs-blue shadow-2xl z-50 rounded-xl mt-2 js-mega-menu-contents" style="display: none;">
+              <ul class="p-4 space-y-2">
                 <{/if}>
-                <li class="l-mega-menu-list__item">
-                  <a class="l-mega-menu-list__link" href="<{$group[num].link_url}>">
+                <li>
+                  <a href="<{$group[num].link_url}>" class="block py-2 px-3 text-gray-600 hover:text-white hover:bg-sdgs-blue rounded-lg transition-all duration-300">
                     <{$group[num].name}>
                   </a>
                 </li>
                 <{if $smarty.section.num.last }>
               </ul>
-            </div><!-- /.l-mega-menu -->
+            </div>
           </li>
           <{/if}>
           <{/section}>
+          
           <{if $free_area_flg}>
-          <li class="l-main-navi-list__item">
-            <div class="l-main-navi-list__ttl">
-              CONTENTS
-            </div>
-            <button class="l-main-navi-list__link js-mega-menu-btn">
+          <li class="relative">
+            <button class="block text-white rounded-xl px-4 py-3 text-center transition-all duration-300 transform hover:scale-105 hover:shadow-lg border-2 bg-sdgs-orange hover:bg-sdgs-bright-orange border-sdgs-orange hover:border-sdgs-bright-orange w-full js-mega-menu-btn">
               CONTENTS
             </button>
-            <div class="l-mega-menu js-mega-menu-contents">
-              <ul class="l-mega-menu-list">
+            <div class="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-2 border-sdgs-orange shadow-2xl z-50 rounded-xl mt-2 js-mega-menu-contents" style="display: none;">
+              <ul class="p-4 space-y-2">
                 <{section name=num loop=$freepage}>
-                <li class="l-mega-menu-list__item">
-                  <a class="l-mega-menu-list__link" href="<{$freepage[num].link_url}>">
+                <li>
+                  <a href="<{$freepage[num].link_url}>" class="block py-2 px-3 text-gray-600 hover:text-white hover:bg-sdgs-orange rounded-lg transition-all duration-300">
                     <{$freepage[num].page_title}>
                   </a>
                 </li>
                 <{/section}>
               </ul>
-            </div><!-- /.l-mega-menu -->
+            </div>
           </li>
           <{/if}>
         </ul>
-      </div><!-- /.l-main-navi__in -->
-    </div><!-- /.l-main-navi -->
-    <div class="l-main-navi-overlay js-navi-close"></div>
-  </div><!-- /.l-header-main -->
+      </nav>
+    </div>
+    
+    <div class="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 js-navi-close" style="display: none;"></div>
+  </div>
+</header>
 </div><!-- /.l-header -->
 <!-- メインコンテンツ -->
 <{if $tpl_name|truncate:4:"" == "free"}>
-<div class="l-main u-container <{$tpl_name}>">
-  <div class="c-breadcrumbs">
-    <ul class="c-breadcrumbs-list">
-      <li class="c-breadcrumbs-list__item">
-        <a class="c-breadcrumbs-list__link" href="<{$home_url}>">ホーム</a>
+<div class="max-w-7xl mx-auto px-4 py-8 <{$tpl_name}>">
+  <nav class="mb-8">
+    <ul class="flex items-center space-x-2 text-sm">
+      <li>
+        <a href="<{$home_url}>" class="text-gray-600 hover:text-white hover:bg-sdgs-green px-3 py-2 rounded-lg transition-all duration-300 relative group">
+          ホーム
+          <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-bright-orange transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
+        </a>
       </li>
-      <li class="c-breadcrumbs-list__item">
+      <li class="text-gray-400">/</li>
+      <li class="text-sdgs-navy font-medium">
         <{$current_freepage_title}>
       </li>
     </ul>
-  </div>
-  <div class="u-contents">
+  </nav>
+  <div class="bg-white rounded-2xl shadow-lg p-8">
     <{include file = $file_name}>
   </div>
 </div>
 <{else}>
-<div class="l-main <{$tpl_name}>">
+<div class="min-h-screen bg-gradient-to-b from-white via-gray-50/30 to-white <{$tpl_name}>">
   <{include file = $file_name}>
 </div>
 <{/if}>
 <!-- ボトム -->
-<div class="l-bottom u-container">
-  <{* 最近チェックした商品 *}>
-  <{if $history_num != 0}>
-  <div class="p-checked u-contents-s">
-    <h2 class="c-ttl-main">
-      CHECKED ITEMS
-      <span class="c-ttl-main__ja">最近チェックした商品</span>
-    </h2>
-    <div class="u-overflow-slide">
-      <ul class="c-favorite-list">
-        <{section name=num loop=$history}>
-        <li class="c-favorite-list__item">
-          <div class="c-favorite-list__img">
-            <a class="u-img-scale" href="<{$history[num].link_url}>">
-              <{if $history[num].img_url != ""}>
-              <img src="<{$history[num].img_url}>" alt="<{$history[num].name|escape:'html'}>" />
-              <{else}>
-              <img src="https://img.shop-pro.jp/tmpl_img/86/no-image.jpg" alt="<{$history[num].name|escape:'html'}>" />
-              <{/if}>
-            </a>
-          </div>
-          <div class="c-favorite-list__txt">
-            <{if !$history[num].soldout_flg}>
-            <div class="c-favorite-list__price<{if $members_login_flg && $history[num].discount_flg}> is-discount<{/if}>">
-              <{* 販売価格（ログイン時は会員価格） *}>
-              <{$history[num].price}>
-              <{* 割引率（ログイン時、通常販売価格と会員価格が異なる場合のみ） *}>
-              <{if $members_login_flg && $history[num].discount_flg}><{$history[num].discount_rate}>OFF<{/if}>
+<div class="bg-gradient-to-b from-gray-50/50 to-white">
+  <div class="max-w-7xl mx-auto px-4 py-16">
+    <{* 最近チェックした商品 *}>
+    <{if $history_num != 0}>
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-center mb-4">
+        <span class="text-sdgs-navy">CHECKED ITEMS</span>
+        <div class="text-lg text-sdgs-blue font-medium">最近チェックした商品</div>
+        <div class="w-24 h-1 bg-gradient-to-r from-sdgs-bright-orange to-sdgs-yellow rounded-full mx-auto mt-3"></div>
+      </h2>
+      <div class="overflow-x-auto">
+        <ul class="flex space-x-6 pb-4">
+          <{section name=num loop=$history}>
+          <li class="flex-shrink-0 w-48">
+            <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group overflow-hidden">
+              <div class="aspect-square overflow-hidden rounded-t-2xl">
+                <a href="<{$history[num].link_url}>" class="block h-full">
+                  <{if $history[num].img_url != ""}>
+                  <img src="<{$history[num].img_url}>" alt="<{$history[num].name|escape:'html'}>" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <{else}>
+                  <img src="https://img.shop-pro.jp/tmpl_img/86/no-image.jpg" alt="<{$history[num].name|escape:'html'}>" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <{/if}>
+                </a>
+              </div>
+              <div class="p-4">
+                <{if !$history[num].soldout_flg}>
+                <div class="text-lg font-bold text-sdgs-navy<{if $members_login_flg && $history[num].discount_flg}> text-sdgs-green<{/if}>">
+                  <{$history[num].price}>
+                  <{if $members_login_flg && $history[num].discount_flg}>
+                  <span class="ml-2 bg-sdgs-bright-orange text-white text-xs px-2 py-1 rounded-full">
+                    <{$history[num].discount_rate}>OFF
+                  </span>
+                  <{/if}>
+                </div>
+                <{if $members_login_flg && $history[num].discount_flg}>
+                <div class="text-sm text-gray-500 line-through">
+                  <{$history[num].regular_price}>
+                </div>
+                <{/if}>
+                <{else}>
+                <div class="text-lg font-bold text-sdgs-red bg-sdgs-red/10 px-3 py-2 rounded-lg text-center">
+                  SOLD OUT
+                </div>
+                <{/if}>
+              </div>
             </div>
-            <{* 通常販売価格（ログイン時、通常販売価格と会員価格が異なる場合のみ） *}>
-            <{if $members_login_flg && $history[num].discount_flg}>
-            <div class="c-favorite-list__price is-strikethrough">
-              <{$history[num].regular_price}>
-            </div>
-            <{/if}>
-            <{else}>
-            <{* 売り切れの表記 *}>
-            <div class="c-favorite-list__price is-soldout">
-              SOLD OUT
-            </div>
-            <{/if}>
-          </div>
-        </li>
-        <{/section}>
-      </ul>
+          </li>
+          <{/section}>
+        </ul>
+      </div>
     </div>
-  </div><!-- /.p-checked -->
-  <{/if}>
-  <{* // 最近チェックした商品 *}>
-  <div class="p-shop-info">
-    <!-- 店長からのメッセージ -->
-    <{if $manager_name != "" && $manager_memo != ""}>
-    <div class="u-contents-s">
-      <div class="p-staff">
-        <h2 class="c-ttl-sub">
-          MESSAGE FROM STAFF
-          <span class="c-ttl-sub__ja">店長からのメッセージ</span>
+    <{/if}>
+    <{* // 最近チェックした商品 *}>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+      <!-- 店長からのメッセージ -->
+      <{if $manager_name != "" && $manager_memo != ""}>
+      <div class="bg-white rounded-2xl shadow-xl p-8 border-t-4 border-sdgs-green hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">
+          <span class="text-sdgs-green">MESSAGE FROM STAFF</span>
+          <div class="text-lg text-sdgs-blue font-medium">店長からのメッセージ</div>
+          <div class="w-16 h-1 bg-gradient-to-r from-sdgs-bright-orange to-sdgs-yellow rounded-full mt-3"></div>
         </h2>
-        <div class="p-staff-box">
+        <div class="space-y-4">
           <{if $manager_img != ""}>
-          <div class="p-staff__img">
-            <img src="<{$manager_img}>" alt="<{$manager_name|escape:'html'}>" />
-            <div class="p-staff__img-name">
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="w-16 h-16 rounded-full overflow-hidden border-4 border-sdgs-green/20">
+              <img src="<{$manager_img}>" alt="<{$manager_name|escape:'html'}>" class="w-full h-full object-cover" />
+            </div>
+            <div class="font-bold text-sdgs-navy text-lg">
               <{$manager_name}>
             </div>
           </div>
           <{else}>
-          <div class="u-bold">
+          <div class="font-bold text-sdgs-navy text-lg mb-4">
             <{$manager_name}>
           </div>
           <{/if}>
-          <{$manager_memo}>
+          <div class="text-gray-600 leading-relaxed">
+            <{$manager_memo}>
+          </div>
         </div>
-      </div><!-- /.p-staff -->
-    </div>
-    <{/if}>
-    <!-- //店長からのメッセージ -->
-    <!-- カレンダー -->
-    <{if $calendar != ""}>
-    <div class="u-contents-s">
-      <div class="p-calendar">
-        <h2 class="c-ttl-sub">
-          CALENDAR
-          <span class="c-ttl-sub__ja">カレンダー</span>
+      </div>
+      <{/if}>
+      
+      <!-- カレンダー -->
+      <{if $calendar != ""}>
+      <div class="bg-white rounded-2xl shadow-xl p-8 border-t-4 border-sdgs-blue hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">
+          <span class="text-sdgs-blue">CALENDAR</span>
+          <div class="text-lg text-sdgs-green font-medium">カレンダー</div>
+          <div class="w-16 h-1 bg-gradient-to-r from-sdgs-bright-orange to-sdgs-yellow rounded-full mt-3"></div>
         </h2>
-        <div class="side_section side_section_cal">
-          <div class="side_cal">
+        <div class="space-y-4">
+          <div class="bg-gray-50 rounded-xl p-4">
             <{$calendar}>
           </div>
           <{if $calendar_memo != ""}>
-          <div class="side_cal_memo">
+          <div class="text-gray-600 leading-relaxed">
             <{$calendar_memo}>
           </div>
           <{/if}>
         </div>
-      </div><!-- /.p-calendar -->
+      </div>
+      <{/if}>
     </div>
-    <{/if}>
-    <!-- //カレンダー -->
-  </div><!-- /.p-shop-info -->
-  <div class="p-shopguide u-contents-s">
-    <h2 class="u-visually-hidden">
-      ショッピングガイド
-    </h2>
-    <div class="p-shopguide-wrap">
-      <{if $sk_delivery != ""}>
-      <div class="p-shopguide-column">
-        <div class="p-shopguide-box js-matchHeight">
-          <div class="p-shopguide-head">
-            <div class="p-shopguide__icon">
-              <img src="https://img.shop-pro.jp/tmpl_img/86/shopguide-icon-shipping.png" alt="" />
-            </div>
-            <h3 class="c-ttl-sub">
-              SHIPPING
-              <span class="c-ttl-sub__ja">配送・送料について</span>
-            </h3>
-          </div>
-          <dl class="p-shopguide-txt">
-            <{section name=num loop=$sk_delivery}>
-            <dt class="p-shopguide__ttl">
-              <{$sk_delivery[num].name}>
-            </dt>
-            <dd class="p-shopguide__body">
-              <{if $sk_delivery[num].img_url != ""}>
-              <div class="p-shopguide__img">
-                <img src="<{$sk_delivery[num].img_url}>" />
+    <div>
+      <h2 class="sr-only">ショッピングガイド</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <{if $sk_delivery != ""}>
+        <div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-sdgs-blue hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 group relative overflow-hidden js-matchHeight">
+          <div class="absolute inset-0 bg-gradient-to-br from-sdgs-blue/5 to-sdgs-light-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          <div class="relative z-10">
+            <div class="flex items-start space-x-4 mb-6">
+              <div class="flex-shrink-0 p-3 bg-gradient-to-r from-sdgs-blue to-sdgs-light-blue rounded-xl shadow-lg transform group-hover:scale-110 transition-all duration-300">
+                <img src="https://img.shop-pro.jp/tmpl_img/86/shopguide-icon-shipping.png" alt="" class="w-8 h-8 filter brightness-0 invert" />
               </div>
-              <{/if}>
-              <{$sk_delivery[num].other}>
-            </dd>
-            <{/section}>
-          </dl>
-        </div><!-- /.p-shopguide-box -->
-      </div><!-- /.p-shopguide-column -->
-      <{/if}>
-      <div class="p-shopguide-column">
-        <div class="p-shopguide-box js-matchHeight">
-          <div class="p-shopguide-head">
-            <div class="p-shopguide__icon">
-              <img src="https://img.shop-pro.jp/tmpl_img/86/shopguide-icon-return.png" alt="" />
-            </div>
-            <h3 class="c-ttl-sub">
-              RETURN
-              <span class="c-ttl-sub__ja">返品について</span>
-            </h3>
-          </div>
-          <dl class="p-shopguide-txt">
-            <{if $shop.bad_product != ""}>
-            <dt class="p-shopguide__ttl">
-              不良品
-            </dt>
-            <dd class="p-shopguide__body">
-              <{$shop.bad_product}>
-            </dd>
-            <{/if}>
-            <{if $shop.return_limit != ""}>
-            <dt class="p-shopguide__ttl">
-              返品期限
-            </dt>
-            <dd class="p-shopguide__body">
-              <{$shop.return_limit}>
-            </dd>
-            <{/if}>
-            <{if $shop.return_price != ""}>
-            <dt class="p-shopguide__ttl">
-              返品送料
-            </dt>
-            <dd class="p-shopguide__body">
-              <{$shop.return_price}>
-            </dd>
-            <{/if}>
-          </dl>
-        </div><!-- /.p-shopguide-box -->
-      </div><!-- /.p-shopguide-column -->
-      <{if $sk_payment != ""}>
-      <div class="p-shopguide-column">
-        <div class="p-shopguide-box js-matchHeight">
-          <div class="p-shopguide-head">
-            <div class="p-shopguide__icon">
-              <img src="https://img.shop-pro.jp/tmpl_img/86/shopguide-icon-payment.png" alt="" />
-            </div>
-            <h3 class="c-ttl-sub">
-              PAYMENT
-              <span class="c-ttl-sub__ja">お支払いについて</span>
-            </h3>
-          </div>
-          <dl class="p-shopguide-txt">
-            <{section name=num loop=$sk_payment}>
-            <dt class="p-shopguide__ttl">
-              <{$sk_payment[num].name}>
-            </dt>
-            <dd class="p-shopguide__body">
-              <{if $sk_payment[num].img_url != ""}>
-              <div class="p-shopguide__img">
-                <img src="<{$sk_payment[num].img_url}>" />
+              <div>
+                <h3 class="font-bold text-gray-800 mb-2 text-lg">SHIPPING</h3>
+                <p class="text-sm text-sdgs-blue font-medium">配送・送料について</p>
               </div>
-              <{/if}>
-              <{if $sk_payment[num].card_img != ""}>
-              <div class="p-shopguide__img">
-                <{$sk_payment[num].card_img}>
+            </div>
+            <dl class="space-y-3">
+              <{section name=num loop=$sk_delivery}>
+              <div>
+                <dt class="font-bold text-gray-800 mb-1"><{$sk_delivery[num].name}></dt>
+                <dd class="text-sm text-gray-600 leading-relaxed">
+                  <{if $sk_delivery[num].img_url != ""}>
+                  <div class="mb-2">
+                    <img src="<{$sk_delivery[num].img_url}>" class="max-w-full h-auto rounded-lg" />
+                  </div>
+                  <{/if}>
+                  <{$sk_delivery[num].other}>
+                </dd>
               </div>
-              <{/if}>
-              <{$sk_payment[num].other}>
-            </dd>
-            <{/section}>
-          </dl>
-        </div><!-- /.p-shopguide-box -->
-      </div><!-- /.p-shopguide-column -->
-      <{/if}>
-    </div><!-- /.p-shopguide-wrap -->
-  </div><!-- /.p-shopguide -->
-</div><!-- /.l-bottom -->
-<!-- フッター -->
-<div class="l-footer">
-  <div class="u-container">
-    <div class="l-footer-main">
-      <div class="l-footer-shopinfo">
-        <div class="l-footer-shopinfo__logo">
-          <a href="<{$home_url}>"><{$logo}></a>
-        </div>
-        <{if $logo_type == "image"}>
-        <div class="l-footer-shopinfo__txt">
-          <{$shop_name}>
+              <{/section}>
+            </dl>
+          </div>
         </div>
         <{/if}>
-        <ul class="l-footer-sns-list u-opa">
-          <{if $instagram_url}>
-          <li class="l-footer-sns-list__item">
-            <a href="<{$instagram_url}>" target="_blank">
-              <i class="icon-lg-b icon-instagram" aria-label="instagram"></i>
-            </a>
-          </li>
-          <{/if}>
-          <{if $facebook_url}>
-          <li class="l-footer-sns-list__item">
-            <a href="<{$facebook_url}>" target="_blank">
-              <i class="icon-lg-b icon-facebook" aria-label="Facebook"></i>
-            </a>
-          </li>
-          <{/if}>
-          <{if $twitter_url}>
-          <li class="l-footer-sns-list__item">
-            <a href="<{$twitter_url}>" target="_blank">
-              <i class="icon-lg-b icon-twitter" aria-label="Twitter"></i>
-            </a>
-          </li>
-          <{/if}>
-          <{if $youtube_url}>
-          <li class="l-footer-sns-list__item">
-            <a href="<{$youtube_url}>" target="_blank">
-              <i class="icon-lg-b icon-video" aria-label="Youtube"></i>
-            </a>
-          </li>
-          <{/if}>
-          <!-- <li class="l-footer-sns-list__item">
-            <a href="" target="_blank">
-              <i class="icon-lg-b icon-pinterest" aria-label="pinterest"></i>
-            </a>
-          </li> -->
-        </ul>
-        <{if $qrcode_url}>
-        <div class="l-footer-qrcode">
-          <img src="<{$qrcode_url}>" />
+
+        <div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-sdgs-green hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 group relative overflow-hidden js-matchHeight">
+          <div class="absolute inset-0 bg-gradient-to-br from-sdgs-green/5 to-sdgs-light-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          <div class="relative z-10">
+            <div class="flex items-start space-x-4 mb-6">
+              <div class="flex-shrink-0 p-3 bg-gradient-to-r from-sdgs-green to-sdgs-light-green rounded-xl shadow-lg transform group-hover:scale-110 transition-all duration-300">
+                <img src="https://img.shop-pro.jp/tmpl_img/86/shopguide-icon-return.png" alt="" class="w-8 h-8 filter brightness-0 invert" />
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-800 mb-2 text-lg">RETURN</h3>
+                <p class="text-sm text-sdgs-green font-medium">返品について</p>
+              </div>
+            </div>
+            <dl class="space-y-4">
+              <{if $shop.bad_product != ""}>
+              <div>
+                <dt class="font-bold text-gray-800 mb-1">不良品</dt>
+                <dd class="text-sm text-gray-600 leading-relaxed">
+                  <{$shop.bad_product}>
+                </dd>
+              </div>
+              <{/if}>
+              <{if $shop.return_limit != ""}>
+              <div>
+                <dt class="font-bold text-gray-800 mb-1">返品期限</dt>
+                <dd class="text-sm text-gray-600 leading-relaxed">
+                  <{$shop.return_limit}>
+                </dd>
+              </div>
+              <{/if}>
+              <{if $shop.return_price != ""}>
+              <div>
+                <dt class="font-bold text-gray-800 mb-1">返品送料</dt>
+                <dd class="text-sm text-gray-600 leading-relaxed">
+                  <{$shop.return_price}>
+                </dd>
+              </div>
+              <{/if}>
+            </dl>
+          </div>
+        </div>
+
+        <{if $sk_payment != ""}>
+        <div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-sdgs-orange hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 group relative overflow-hidden js-matchHeight">
+          <div class="absolute inset-0 bg-gradient-to-br from-sdgs-orange/5 to-sdgs-yellow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          <div class="relative z-10">
+            <div class="flex items-start space-x-4 mb-6">
+              <div class="flex-shrink-0 p-3 bg-gradient-to-r from-sdgs-orange to-sdgs-yellow rounded-xl shadow-lg transform group-hover:scale-110 transition-all duration-300">
+                <img src="https://img.shop-pro.jp/tmpl_img/86/shopguide-icon-payment.png" alt="" class="w-8 h-8 filter brightness-0 invert" />
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-800 mb-2 text-lg">PAYMENT</h3>
+                <p class="text-sm text-sdgs-orange font-medium">お支払いについて</p>
+              </div>
+            </div>
+            <dl class="space-y-3">
+              <{section name=num loop=$sk_payment}>
+              <div>
+                <dt class="font-bold text-gray-800 mb-1"><{$sk_payment[num].name}></dt>
+                <dd class="text-sm text-gray-600 leading-relaxed">
+                  <{if $sk_payment[num].img_url != ""}>
+                  <div class="mb-2">
+                    <img src="<{$sk_payment[num].img_url}>" class="max-w-full h-auto rounded-lg" />
+                  </div>
+                  <{/if}>
+                  <{if $sk_payment[num].card_img != ""}>
+                  <div class="mb-2">
+                    <{$sk_payment[num].card_img}>
+                  </div>
+                  <{/if}>
+                  <{$sk_payment[num].other}>
+                </dd>
+              </div>
+              <{/section}>
+            </dl>
+          </div>
         </div>
         <{/if}>
       </div>
-      <div class="l-footer-navi">
-        <ul class="l-footer-navi-list">
-          <li class="l-footer-navi-list__item">
-            <a class="l-footer-navi-list__link" href="<{$home_url}>">
-              ホーム
-            </a>
-          </li>
-          <li class="l-footer-navi-list__item">
-            <a class="l-footer-navi-list__link" href="<{$sk_url}>#delivery">
-              配送・送料について
-            </a>
-          </li>
-          <li class="l-footer-navi-list__item">
-            <a class="l-footer-navi-list__link" href="<{if $tpl_name != "shopkeeper"}><{$sk_url}><{/if}>#return">
-              返品について
-            </a>
-          </li>
-          <li class="l-footer-navi-list__item">
-            <a class="l-footer-navi-list__link" href="<{if $tpl_name != "shopkeeper"}><{$sk_url}><{/if}>#payment">
-              支払い方法について
-            </a>
-          </li>
-          <li class="l-footer-navi-list__item">
-            <a class="l-footer-navi-list__link" href="<{if $tpl_name != "shopkeeper"}><{$sk_url}><{/if}>#info">
-              特定商取引法に基づく表記
-            </a>
-          </li>
-          <li class="l-footer-navi-list__item">
-            <a class="l-footer-navi-list__link" href="<{$privacy_url}>">
-              プライバシーポリシー
-            </a>
-          </li>
-        </ul>
-        <ul class="l-footer-navi-list">
-          <{if $manager_url != ""}>
-          <li class="l-footer-navi-list__item">
-            <a class="l-footer-navi-list__link" href="<{$manager_url}>">
-              ショップブログ
-            </a>
-          </li>
-          <{/if}>
-          <{if $mailmaga_url != ""}>
-          <li class="l-footer-navi-list__item">
-            <a class="l-footer-navi-list__link" href="<{$mailmaga_url}>">
-              メルマガ登録・解除
-            </a>
-          </li>
-          <{/if}>
-          <li class="l-footer-navi-list__item">
-            <span class="l-footer-navi-list__link">
-              <a href="<{$rss_url}>">RSS</a> / <a href="<{$atom_url}>">ATOM</a>
-            </span>
-          </li>
-        </ul>
-        <ul class="l-footer-navi-list">
-          <{if $members_use_flg}>
-          <{if !$members_login_flg}>
-          <{if $members_register_flg}>
-          <li class="l-footer-navi-list__item">
-            <a class="l-footer-navi-list__link" href="<{$members_regi_url}>">
-              会員登録
-            </a>
-          </li>
-          <{/if}>
-          <li class="l-footer-navi-list__item">
-            <a class="l-footer-navi-list__link" href="<{$members_login_url}>">
-              ログイン
-            </a>
-          </li>
-          <{else}>
-          <li class="l-footer-navi-list__item">
-            <a class="l-footer-navi-list__link" href="<{$members_login_url}>">
-              ログアウト
-            </a>
-          </li>
-          <{/if}>
-          <{/if}>
-          <li class="l-footer-navi-list__item">
-            <{if $is_enable_async_cart_in_pc}>
-            <form name="cart_view_with_async" method="POST" action="<{$view_cart_url}>">
-              <{$view_cart_with_async_info}>
-            </form>
-            <a class="l-footer-navi-list__link" href="javascript:void(0)">
-              カートを見る
-            </a>
-            <{else}>
-            <a class="l-footer-navi-list__link" href="<{$view_cart_url}>">
-              カートを見る
-            </a>
-            <{/if}>
-          </li>
-          <li class="l-footer-navi-list__item">
-            <a class="l-footer-navi-list__link" href="<{$view_inq_url}>">
-              お問い合わせ
-            </a>
-          </li>
-        </ul>
-      </div><!-- /.l-footer-navi -->
-    </div><!-- /.l-footer-main -->
-  </div><!-- /.u-container -->
-</div><!-- /.l-footer -->
-<div class="l-copyright">
-  <div class="l-copyright__txt">
-    <{$e_copyright}>
+    </div>
   </div>
-  <div class="l-copyright__logo">
-    <a href="https://shop-pro.jp" target="_blank">Powered by<img src="https://img.shop-pro.jp/tmpl_img/86/powered.png" alt="カラーミーショップ" /></a>
-  </div><!-- /.l-copyright__txt -->
+</div>
+</div><!-- /.l-bottom -->
+<!-- フッター -->
+<footer class="bg-gray-100 relative overflow-hidden">
+  <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-sdgs-red via-sdgs-orange via-sdgs-yellow via-sdgs-green via-sdgs-blue to-sdgs-purple"></div>
+  
+  <div class="absolute top-8 left-16 w-12 h-12 bg-sdgs-light-blue/20 rounded-full animate-pulse"></div>
+  <div class="absolute top-24 right-20 w-8 h-8 bg-sdgs-pink/20 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+  <div class="absolute bottom-20 left-1/4 w-6 h-6 bg-sdgs-yellow/30 rounded-full animate-pulse" style="animation-delay: 2s;"></div>
+  <div class="absolute bottom-8 right-1/3 w-10 h-10 bg-sdgs-light-green/20 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 py-16 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <div class="mb-8">
+          <a href="<{$home_url}>" class="text-3xl font-bold text-sdgs-dark-green hover:text-sdgs-green transition-all duration-300 inline-block relative group">
+            <{$logo}>
+            <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sdgs-bright-orange transition-all duration-300 group-hover:w-full"></div>
+          </a>
+          <div class="w-16 h-1 bg-gradient-to-r from-sdgs-bright-orange to-sdgs-yellow rounded-full mt-3 shadow-sm"></div>
+        </div>
+        <{if $logo_type == "image"}>
+        <div class="text-gray-600 mb-6">
+          <{$shop_name}>
+        </div>
+        <{/if}>
+        <div class="flex space-x-6">
+          <{if $instagram_url}>
+          <a href="<{$instagram_url}>" target="_blank" rel="noopener noreferrer" class="text-sdgs-dark-green hover:text-white transition-all duration-300 font-medium relative group px-4 py-2 rounded-lg bg-sdgs-light-blue/10 hover:bg-sdgs-light-blue border-2 border-sdgs-light-blue/30 hover:border-sdgs-light-blue">
+            <i class="icon-lg-b icon-instagram" aria-label="instagram"></i>
+            Instagram
+            <div class="absolute -bottom-0.5 left-4 w-0 h-0.5 bg-sdgs-bright-orange transition-all duration-300 group-hover:w-[calc(100%-2rem)]"></div>
+          </a>
+          <{/if}>
+          <{if $facebook_url}>
+          <a href="<{$facebook_url}>" target="_blank" rel="noopener noreferrer" class="text-sdgs-dark-green hover:text-white transition-all duration-300 font-medium relative group px-4 py-2 rounded-lg bg-sdgs-blue/10 hover:bg-sdgs-blue border-2 border-sdgs-blue/30 hover:border-sdgs-blue">
+            <i class="icon-lg-b icon-facebook" aria-label="Facebook"></i>
+            Facebook
+            <div class="absolute -bottom-0.5 left-4 w-0 h-0.5 bg-sdgs-bright-orange transition-all duration-300 group-hover:w-[calc(100%-2rem)]"></div>
+          </a>
+          <{/if}>
+          <{if $twitter_url}>
+          <a href="<{$twitter_url}>" target="_blank" rel="noopener noreferrer" class="text-sdgs-dark-green hover:text-white transition-all duration-300 font-medium relative group px-4 py-2 rounded-lg bg-sdgs-purple/10 hover:bg-sdgs-purple border-2 border-sdgs-purple/30 hover:border-sdgs-purple">
+            <i class="icon-lg-b icon-twitter" aria-label="Twitter"></i>
+            Twitter
+            <div class="absolute -bottom-0.5 left-4 w-0 h-0.5 bg-sdgs-bright-orange transition-all duration-300 group-hover:w-[calc(100%-2rem)]"></div>
+          </a>
+          <{/if}>
+          <{if $youtube_url}>
+          <a href="<{$youtube_url}>" target="_blank" rel="noopener noreferrer" class="text-sdgs-dark-green hover:text-white transition-all duration-300 font-medium relative group px-4 py-2 rounded-lg bg-sdgs-red/10 hover:bg-sdgs-red border-2 border-sdgs-red/30 hover:border-sdgs-red">
+            <i class="icon-lg-b icon-video" aria-label="Youtube"></i>
+            YouTube
+            <div class="absolute -bottom-0.5 left-4 w-0 h-0.5 bg-sdgs-bright-orange transition-all duration-300 group-hover:w-[calc(100%-2rem)]"></div>
+          </a>
+          <{/if}>
+        </div>
+        <{if $qrcode_url}>
+        <div class="mt-6">
+          <img src="<{$qrcode_url}>" class="w-24 h-24 rounded-lg shadow-md" />
+        </div>
+        <{/if}>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div>
+          <ul class="space-y-3">
+            <li>
+              <a href="<{$home_url}>" class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-green border border-transparent hover:border-sdgs-green">
+                ホーム
+                <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-bright-orange transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
+              </a>
+            </li>
+            <li>
+              <a href="<{$sk_url}>#delivery" class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-blue border border-transparent hover:border-sdgs-blue">
+                配送・送料について
+                <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-yellow transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
+              </a>
+            </li>
+            <li>
+              <a href="<{if $tpl_name != "shopkeeper"}><{$sk_url}><{/if}>#return" class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-purple border border-transparent hover:border-sdgs-purple">
+                返品について
+                <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-light-green transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
+              </a>
+            </li>
+            <li>
+              <a href="<{if $tpl_name != "shopkeeper"}><{$sk_url}><{/if}>#payment" class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-orange border border-transparent hover:border-sdgs-orange">
+                支払い方法について
+                <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-pink transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <ul class="space-y-3">
+            <li>
+              <a href="<{if $tpl_name != "shopkeeper"}><{$sk_url}><{/if}>#info" class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-pink border border-transparent hover:border-sdgs-pink">
+                特定商取引法に基づく表記
+                <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-light-blue transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
+              </a>
+            </li>
+            <li>
+              <a href="<{$privacy_url}>" class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-navy border border-transparent hover:border-sdgs-navy">
+                プライバシーポリシー
+                <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-yellow transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
+              </a>
+            </li>
+            <{if $manager_url != ""}>
+            <li>
+              <a href="<{$manager_url}>" class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-light-green border border-transparent hover:border-sdgs-light-green">
+                ショップブログ
+                <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-purple transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
+              </a>
+            </li>
+            <{/if}>
+            <{if $mailmaga_url != ""}>
+            <li>
+              <a href="<{$mailmaga_url}>" class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-dark-green border border-transparent hover:border-sdgs-dark-green">
+                メルマガ登録・解除
+                <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-orange transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
+              </a>
+            </li>
+            <{/if}>
+            <li>
+              <span class="text-gray-600 px-3 py-2 inline-block">
+                <a href="<{$rss_url}>" class="hover:text-sdgs-light-blue transition-colors relative group">
+                  RSS
+                  <div class="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-sdgs-light-blue transition-all duration-300 group-hover:w-full"></div>
+                </a> / 
+                <a href="<{$atom_url}>" class="hover:text-sdgs-light-green transition-colors ml-1 relative group">
+                  ATOM
+                  <div class="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-sdgs-light-green transition-all duration-300 group-hover:w-full"></div>
+                </a>
+              </span>
+            </li>
+            <{if $members_use_flg}>
+            <{if !$members_login_flg}>
+            <{if $members_register_flg}>
+            <li>
+              <a href="<{$members_regi_url}>" class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-bright-orange border border-transparent hover:border-sdgs-bright-orange">
+                会員登録
+                <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-blue transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
+              </a>
+            </li>
+            <{/if}>
+            <li>
+              <a href="<{$members_login_url}>" class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-yellow border border-transparent hover:border-sdgs-yellow">
+                ログイン
+                <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-red transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
+              </a>
+            </li>
+            <{else}>
+            <li>
+              <a href="<{$members_login_url}>" class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-red border border-transparent hover:border-sdgs-red">
+                ログアウト
+                <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-blue transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
+              </a>
+            </li>
+            <{/if}>
+            <{/if}>
+            <li>
+              <{if $is_enable_async_cart_in_pc}>
+              <form name="cart_view_with_async" method="POST" action="<{$view_cart_url}>">
+                <{$view_cart_with_async_info}>
+              </form>
+              <a href="javascript:void(0)" class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-yellow border border-transparent hover:border-sdgs-yellow">
+                カートを見る
+                <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-red transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
+              </a>
+              <{else}>
+              <a href="<{$view_cart_url}>" class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-yellow border border-transparent hover:border-sdgs-yellow">
+                カートを見る
+                <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-red transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
+              </a>
+              <{/if}>
+            </li>
+            <li>
+              <a href="<{$view_inq_url}>" class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-red border border-transparent hover:border-sdgs-red">
+                お問い合わせ
+                <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-blue transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="bg-gray-800 text-white py-4">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+    <div class="text-sm text-gray-300 mb-2 md:mb-0">
+      <{$e_copyright}>
+    </div>
+    <div class="text-sm">
+      <a href="https://shop-pro.jp" target="_blank" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors">
+        <span>Powered by</span>
+        <img src="https://img.shop-pro.jp/tmpl_img/86/powered.png" alt="カラーミーショップ" class="h-4" />
+      </a>
+    </div>
+  </div>
 </div>
 
 <script src="https://img.shop-pro.jp/tmpl_js/86/jquery.biggerlink.min.js"></script>

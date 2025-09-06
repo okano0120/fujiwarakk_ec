@@ -1,33 +1,48 @@
-<div class="l-main u-container">
+<div class="l-main u-container max-w-4xl mx-auto px-4 py-8 bg-gradient-to-b from-white via-gray-50/30 to-white">
     <!-- パンくずリスト -->
-    <div class="c-breadcrumbs">
-      <ul class="c-breadcrumbs-list">
+    <div class="c-breadcrumbs mb-8">
+      <ul class="c-breadcrumbs-list flex items-center space-x-2 text-sm">
         <li class="c-breadcrumbs-list__item">
-          <a href="<{$home_url}>">
+          <a href="<{$home_url}>" class="text-sdgs-navy hover:text-sdgs-blue transition-all duration-300 relative group px-3 py-2 rounded-lg hover:bg-sdgs-light-blue/10 border border-transparent hover:border-sdgs-light-blue/30">
             ホーム
+            <div class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-bright-orange transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"></div>
           </a>
         </li>
-        <li class="c-breadcrumbs-list__item">
+        <li class="c-breadcrumbs-list__item text-gray-400">
+          <span class="mx-2">/</span>
+        </li>
+        <li class="c-breadcrumbs-list__item text-sdgs-dark-green font-medium">
           プライバシーポリシー
         </li>
       </ul>
     </div><!-- /.c-breadcrumbs -->
     <!-- //パンくずリスト -->
     <div class="u-contents">
-      <h2 class="c-ttl-main">
+      <h2 class="c-ttl-main text-3xl md:text-4xl font-bold text-sdgs-navy mb-8 relative inline-block">
         プライバシーポリシー
+        <div class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-sdgs-bright-orange to-sdgs-yellow rounded-full shadow-sm"></div>
+        <div class="absolute -top-1 -left-1 w-0 h-0 border-l-2 border-t-2 border-sdgs-yellow transition-all duration-300 group-hover:w-3 group-hover:h-3"></div>
+        <div class="absolute -top-1 -right-1 w-0 h-0 border-r-2 border-t-2 border-sdgs-orange transition-all duration-300 group-hover:w-3 group-hover:h-3"></div>
       </h2>
-      <p>
-      <{$shop_name}>(以下当ショップ)は、<a href="<{$paperboy_url}>" target="_blank"><{$paperboy_name}></a>(以下サービス提供会社)の提供するショッピングカートASPサービス　<a href="<{$cmsp_url}>" target="_blank"><{$cmsp_name}></a>(当サービス)を利用して当ショップを開設するにあたり<{$paperboy_name}>の定めた<a href="<{$paperboy_privacy_url}>" target="_blank">プライバシー・ポリシー</a>に則った個人情報の取扱いを行います。
-      </p>
-      <{section name=num loop=$privacy}>
-      <div class="p-privacy-box">
-        <h3 class="c-ttl-second">
-          <{$privacy[num].title }>
-        </h3>
-        <p>
-          <{$privacy[num].note }>
+      <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6 mb-8 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sdgs-green via-sdgs-blue to-sdgs-purple"></div>
+        <p class="text-gray-700 leading-relaxed text-base">
+        <{$shop_name}>(以下当ショップ)は、<a href="<{$paperboy_url}>" target="_blank" class="text-sdgs-blue hover:text-sdgs-light-blue transition-colors duration-300 underline decoration-sdgs-bright-orange/30 hover:decoration-sdgs-bright-orange"><{$paperboy_name}></a>(以下サービス提供会社)の提供するショッピングカートASPサービス　<a href="<{$cmsp_url}>" target="_blank" class="text-sdgs-blue hover:text-sdgs-light-blue transition-colors duration-300 underline decoration-sdgs-bright-orange/30 hover:decoration-sdgs-bright-orange"><{$cmsp_name}></a>(当サービス)を利用して当ショップを開設するにあたり<{$paperboy_name}>の定めた<a href="<{$paperboy_privacy_url}>" target="_blank" class="text-sdgs-blue hover:text-sdgs-light-blue transition-colors duration-300 underline decoration-sdgs-bright-orange/30 hover:decoration-sdgs-bright-orange">プライバシー・ポリシー</a>に則った個人情報の取扱いを行います。
         </p>
+      </div>
+      <{section name=num loop=$privacy}>
+      <div class="p-privacy-box bg-white rounded-lg shadow-sm border border-gray-100 mb-6 overflow-hidden hover:shadow-md transition-all duration-300 group">
+        <div class="bg-gradient-to-r from-sdgs-green/10 to-sdgs-blue/10 px-6 py-4 border-b border-gray-100">
+          <h3 class="c-ttl-second text-xl font-semibold text-sdgs-navy relative inline-block group-hover:text-sdgs-blue transition-colors duration-300">
+            <{$privacy[num].title }>
+            <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sdgs-bright-orange transition-all duration-300 group-hover:w-full"></div>
+          </h3>
+        </div>
+        <div class="px-6 py-5">
+          <p class="text-gray-700 leading-relaxed">
+            <{$privacy[num].note }>
+          </p>
+        </div>
       </div>
       <{/section}>
     </div>

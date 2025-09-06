@@ -1,0 +1,286 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 14px;
+  --background: #ffffff;
+  --foreground: oklch(0.145 0 0);
+  --card: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #4c9f38; /* SDGs Green */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: #00689d; /* SDGs Navy */
+  --secondary-foreground: #ffffff;
+  --muted: #f5f7fa;
+  --muted-foreground: #717182;
+  --accent: #fd9d24; /* SDGs Bright Orange */
+  --accent-foreground: #ffffff;
+  --destructive: #dd1367; /* SDGs Pink */
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f8fafe;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: oklch(0.708 0 0);
+  
+  /* SDGs Official Colors */
+  --sdgs-red: #e5243b;
+  --sdgs-dark-orange: #dda63a;
+  --sdgs-green: #4c9f38;
+  --sdgs-dark-red: #c5192d;
+  --sdgs-bright-red: #ff3a21;
+  --sdgs-light-blue: #26bde2;
+  --sdgs-yellow: #fcc30b;
+  --sdgs-purple: #a21942;
+  --sdgs-orange: #fd6925;
+  --sdgs-pink: #dd1367;
+  --sdgs-bright-orange: #fd9d24;
+  --sdgs-brown: #bf8b2e;
+  --sdgs-dark-green: #3f7e44;
+  --sdgs-blue: #0a97d9;
+  --sdgs-light-green: #56c02b;
+  --sdgs-navy: #00689d;
+  --sdgs-dark-blue: #19486a;
+  
+  --chart-1: var(--sdgs-blue);
+  --chart-2: var(--sdgs-green);
+  --chart-3: var(--sdgs-orange);
+  --chart-4: var(--sdgs-purple);
+  --chart-5: var(--sdgs-pink);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: #56c02b; /* SDGs Light Green for dark mode */
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: #26bde2; /* SDGs Light Blue for dark mode */
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: #fcc30b; /* SDGs Yellow for dark mode */
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: #e5243b;
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: var(--sdgs-light-blue);
+  --chart-2: var(--sdgs-light-green);
+  --chart-3: var(--sdgs-yellow);
+  --chart-4: var(--sdgs-purple);
+  --chart-5: var(--sdgs-pink);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  
+  /* SDGs colors available as Tailwind utilities */
+  --color-sdgs-red: var(--sdgs-red);
+  --color-sdgs-dark-orange: var(--sdgs-dark-orange);
+  --color-sdgs-green: var(--sdgs-green);
+  --color-sdgs-dark-red: var(--sdgs-dark-red);
+  --color-sdgs-bright-red: var(--sdgs-bright-red);
+  --color-sdgs-light-blue: var(--sdgs-light-blue);
+  --color-sdgs-yellow: var(--sdgs-yellow);
+  --color-sdgs-purple: var(--sdgs-purple);
+  --color-sdgs-orange: var(--sdgs-orange);
+  --color-sdgs-pink: var(--sdgs-pink);
+  --color-sdgs-bright-orange: var(--sdgs-bright-orange);
+  --color-sdgs-brown: var(--sdgs-brown);
+  --color-sdgs-dark-green: var(--sdgs-dark-green);
+  --color-sdgs-blue: var(--sdgs-blue);
+  --color-sdgs-light-green: var(--sdgs-light-green);
+  --color-sdgs-navy: var(--sdgs-navy);
+  --color-sdgs-dark-blue: var(--sdgs-dark-blue);
+  
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* SDGs utility classes */
+@layer utilities {
+  .bg-sdgs-red { background-color: var(--color-sdgs-red); }
+  .bg-sdgs-dark-orange { background-color: var(--color-sdgs-dark-orange); }
+  .bg-sdgs-green { background-color: var(--color-sdgs-green); }
+  .bg-sdgs-dark-red { background-color: var(--color-sdgs-dark-red); }
+  .bg-sdgs-bright-red { background-color: var(--color-sdgs-bright-red); }
+  .bg-sdgs-light-blue { background-color: var(--color-sdgs-light-blue); }
+  .bg-sdgs-yellow { background-color: var(--color-sdgs-yellow); }
+  .bg-sdgs-purple { background-color: var(--color-sdgs-purple); }
+  .bg-sdgs-orange { background-color: var(--color-sdgs-orange); }
+  .bg-sdgs-pink { background-color: var(--color-sdgs-pink); }
+  .bg-sdgs-bright-orange { background-color: var(--color-sdgs-bright-orange); }
+  .bg-sdgs-brown { background-color: var(--color-sdgs-brown); }
+  .bg-sdgs-dark-green { background-color: var(--color-sdgs-dark-green); }
+  .bg-sdgs-blue { background-color: var(--color-sdgs-blue); }
+  .bg-sdgs-light-green { background-color: var(--color-sdgs-light-green); }
+  .bg-sdgs-navy { background-color: var(--color-sdgs-navy); }
+  .bg-sdgs-dark-blue { background-color: var(--color-sdgs-dark-blue); }
+  
+  .text-sdgs-red { color: var(--color-sdgs-red); }
+  .text-sdgs-dark-orange { color: var(--color-sdgs-dark-orange); }
+  .text-sdgs-green { color: var(--color-sdgs-green); }
+  .text-sdgs-dark-red { color: var(--color-sdgs-dark-red); }
+  .text-sdgs-bright-red { color: var(--color-sdgs-bright-red); }
+  .text-sdgs-light-blue { color: var(--color-sdgs-light-blue); }
+  .text-sdgs-yellow { color: var(--color-sdgs-yellow); }
+  .text-sdgs-purple { color: var(--color-sdgs-purple); }
+  .text-sdgs-orange { color: var(--color-sdgs-orange); }
+  .text-sdgs-pink { color: var(--color-sdgs-pink); }
+  .text-sdgs-bright-orange { color: var(--color-sdgs-bright-orange); }
+  .text-sdgs-brown { color: var(--color-sdgs-brown); }
+  .text-sdgs-dark-green { color: var(--color-sdgs-dark-green); }
+  .text-sdgs-blue { color: var(--color-sdgs-blue); }
+  .text-sdgs-light-green { color: var(--color-sdgs-light-green); }
+  .text-sdgs-navy { color: var(--color-sdgs-navy); }
+  .text-sdgs-dark-blue { color: var(--color-sdgs-dark-blue); }
+  
+  .border-sdgs-red { border-color: var(--color-sdgs-red); }
+  .border-sdgs-dark-orange { border-color: var(--color-sdgs-dark-orange); }
+  .border-sdgs-green { border-color: var(--color-sdgs-green); }
+  .border-sdgs-dark-red { border-color: var(--color-sdgs-dark-red); }
+  .border-sdgs-bright-red { border-color: var(--color-sdgs-bright-red); }
+  .border-sdgs-light-blue { border-color: var(--color-sdgs-light-blue); }
+  .border-sdgs-yellow { border-color: var(--color-sdgs-yellow); }
+  .border-sdgs-purple { border-color: var(--color-sdgs-purple); }
+  .border-sdgs-orange { border-color: var(--color-sdgs-orange); }
+  .border-sdgs-pink { border-color: var(--color-sdgs-pink); }
+  .border-sdgs-bright-orange { border-color: var(--color-sdgs-bright-orange); }
+  .border-sdgs-brown { border-color: var(--color-sdgs-brown); }
+  .border-sdgs-dark-green { border-color: var(--color-sdgs-dark-green); }
+  .border-sdgs-blue { border-color: var(--color-sdgs-blue); }
+  .border-sdgs-light-green { border-color: var(--color-sdgs-light-green); }
+  .border-sdgs-navy { border-color: var(--color-sdgs-navy); }
+  .border-sdgs-dark-blue { border-color: var(--color-sdgs-dark-blue); }
+}

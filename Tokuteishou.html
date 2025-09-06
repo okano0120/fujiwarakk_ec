@@ -1,262 +1,419 @@
-<div class="l-main u-container">
+<div class="max-w-7xl mx-auto px-4 py-8">
     <!-- パンくずリスト -->
-    <div class="c-breadcrumbs">
-      <ul class="c-breadcrumbs-list">
-        <li class="c-breadcrumbs-list__item">
-          <a href="<{$home_url}>">
+    <nav class="mb-8" aria-label="パンくず">
+      <ol class="flex items-center space-x-2 text-sm text-gray-600">
+        <li>
+          <a href="<{$home_url}>" class="text-sdgs-blue hover:text-sdgs-navy transition-colors duration-300 hover:underline">
             ホーム
           </a>
         </li>
-        <li class="c-breadcrumbs-list__item">
-          特定商取引法に基づく表記
+        <li class="flex items-center">
+          <svg class="w-4 h-4 mx-2 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="text-sdgs-navy font-medium">特定商取引法に基づく表記</span>
         </li>
-      </ul>
-    </div><!-- /.c-breadcrumbs -->
+      </ol>
+    </nav>
     <!-- //パンくずリスト -->
     <!-- 配送方法 -->
-    <div id="delivery" class="u-contents">
-      <h2 class="c-ttl-second">
-        配送・送料について
-      </h2>
-      <div class="c-tbl-list">
+    <section id="delivery" class="mb-12">
+      <div class="relative mb-8">
+        <h2 class="text-2xl font-bold text-sdgs-navy mb-2 relative inline-block">
+          配送・送料について
+          <div class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-sdgs-light-blue to-sdgs-blue rounded-full"></div>
+        </h2>
+      </div>
+      <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
         <{section name=num loop=$sk_delivery}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            <{$sk_delivery[num].name}>
-          </h3>
-          <div class="c-tbl-list__td">
-            <{if $sk_delivery[num].img_url != "" }>
-              <img src="<{$sk_delivery[num].img_url}>" /><br />
-            <{/if}>
-            <{$sk_delivery[num].other}>&nbsp;
+        <div class="border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-bright-orange rounded-full mr-3"></div>
+                <{$sk_delivery[num].name}>
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <{if $sk_delivery[num].img_url != "" }>
+                <img src="<{$sk_delivery[num].img_url}>" class="mb-4 rounded-lg shadow-sm max-w-xs" alt="配送方法画像" />
+              <{/if}>
+              <div class="text-gray-700 leading-relaxed">
+                <{$sk_delivery[num].other}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/section}>
       </div>
-    </div>
+    </section>
     <!-- // 配送方法 -->
     <!-- 支払い方法 -->
-    <div id="payment" class="u-contents">
-      <h2 class="c-ttl-second">
-        支払い方法について
-      </h2>
-      <div class="c-tbl-list">
+    <section id="payment" class="mb-12">
+      <div class="relative mb-8">
+        <h2 class="text-2xl font-bold text-sdgs-navy mb-2 relative inline-block">
+          支払い方法について
+          <div class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-sdgs-green to-sdgs-light-green rounded-full"></div>
+        </h2>
+      </div>
+      <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
         <{section name=num loop=$sk_payment}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            <{$sk_payment[num].name}>
-          </h3>
-          <div class="c-tbl-list__td">
-            <{if $sk_payment[num].img_url != "" }>
-              <img src="<{$sk_payment[num].img_url}>" /><br />
-            <{/if}>
-            <{if $sk_payment[num].card_img != "" }>
-              <{$sk_payment[num].card_img}><br />
-            <{/if}>
-            <{$sk_payment[num].other}>&nbsp;
+        <div class="border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-orange rounded-full mr-3"></div>
+                <{$sk_payment[num].name}>
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <{if $sk_payment[num].img_url != "" }>
+                <img src="<{$sk_payment[num].img_url}>" class="mb-4 rounded-lg shadow-sm max-w-xs" alt="支払い方法画像" />
+              <{/if}>
+              <{if $sk_payment[num].card_img != "" }>
+                <div class="mb-4">
+                  <{$sk_payment[num].card_img}>
+                </div>
+              <{/if}>
+              <div class="text-gray-700 leading-relaxed">
+                <{$sk_payment[num].other}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/section}>
       </div>
-    </div>
+    </section>
     <!-- // 支払い方法 -->
     <!-- 返品について -->
-    <div id="return" class="u-contents">
-      <h2 class="c-ttl-second">
-        返品について
-      </h2>
-      <div class="c-tbl-list">
+    <section id="return" class="mb-12">
+      <div class="relative mb-8">
+        <h2 class="text-2xl font-bold text-sdgs-navy mb-2 relative inline-block">
+          返品について
+          <div class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-sdgs-purple to-sdgs-pink rounded-full"></div>
+        </h2>
+      </div>
+      <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
         <{if $shop.bad_product != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            不良品
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.bad_product}>&nbsp;
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-red rounded-full mr-3"></div>
+                不良品
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.bad_product}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.return_limit != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            返品期限
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.return_limit}>&nbsp;
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-yellow rounded-full mr-3"></div>
+                返品期限
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.return_limit}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.return_price != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            返品送料
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.return_price}>&nbsp;
+        <div class="border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-light-blue rounded-full mr-3"></div>
+                返品送料
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.return_price}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
       </div>
-    </div>
+    </section>
     <!-- // 返品について -->
     <!-- 特定商法取引法に基づく表記 -->
-    <div id="info" class="u-contents">
-      <h2 class="c-ttl-second">
-        特定商取引法に基づく表記
-      </h2>
-      <div class="c-tbl-list">
+    <section id="info" class="mb-12">
+      <div class="relative mb-8">
+        <h2 class="text-2xl font-bold text-sdgs-navy mb-2 relative inline-block">
+          特定商取引法に基づく表記
+          <div class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-sdgs-bright-orange to-sdgs-yellow rounded-full"></div>
+        </h2>
+      </div>
+      <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
         <{if $shop.shop_name != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            販売業者
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.shop_name}>&nbsp;
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-green rounded-full mr-3"></div>
+                販売業者
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.shop_name}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.manager_name != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            運営統括責任者名
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.manager_name}>&nbsp;
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-blue rounded-full mr-3"></div>
+                運営統括責任者名
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.manager_name}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.postal != ""}>
-        <div class="c-tbl-list__tr c-transactions-act__tr">
-          <h3 class="c-tbl-list__th">
-            郵便番号
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.postal}>&nbsp;
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-light-green rounded-full mr-3"></div>
+                郵便番号
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.postal}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.address != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            住所
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.address}>
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-purple rounded-full mr-3"></div>
+                住所
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.address}>
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.price != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            商品代金以外の料金の説明
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.price}>&nbsp;
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-orange rounded-full mr-3"></div>
+                商品代金以外の料金の説明
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.price}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.apply_limit != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            申込有効期限
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.apply_limit}>&nbsp;
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-pink rounded-full mr-3"></div>
+                申込有効期限
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.apply_limit}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.sales_num != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            販売数量
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.sales_num}>&nbsp;
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-brown rounded-full mr-3"></div>
+                販売数量
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.sales_num}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.delivery_time != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            引渡し時期
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.delivery_time}>&nbsp;
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-dark-green rounded-full mr-3"></div>
+                引渡し時期
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.delivery_time}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.payment_way != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            お支払い方法
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.payment_way}>&nbsp;
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-light-blue rounded-full mr-3"></div>
+                お支払い方法
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.payment_way}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.payment_limit != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            お支払い期限
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.payment_limit}>&nbsp;
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-red rounded-full mr-3"></div>
+                お支払い期限
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.payment_limit}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.license != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            資格・免許
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.license}>&nbsp;
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-dark-orange rounded-full mr-3"></div>
+                資格・免許
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.license}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.service_name != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            サービス名
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.service_name}>&nbsp;
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-bright-red rounded-full mr-3"></div>
+                サービス名
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.service_name}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.tel != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            電話番号
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.tel}>
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-navy rounded-full mr-3"></div>
+                電話番号
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.tel}>
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.email != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            公開メールアドレス
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.email}>&nbsp;
+        <div class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-dark-blue rounded-full mr-3"></div>
+                公開メールアドレス
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.email}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
         <{if $shop.hp_address != ""}>
-        <div class="c-tbl-list__tr">
-          <h3 class="c-tbl-list__th">
-            ホームページアドレス
-          </h3>
-          <div class="c-tbl-list__td">
-            <{$shop.hp_address}>&nbsp;
+        <div class="border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+            <div class="md:col-span-1">
+              <h3 class="font-semibold text-sdgs-navy text-lg mb-2 flex items-center">
+                <div class="w-2 h-2 bg-sdgs-bright-orange rounded-full mr-3"></div>
+                ホームページアドレス
+              </h3>
+            </div>
+            <div class="md:col-span-3">
+              <div class="text-gray-700 leading-relaxed">
+                <{$shop.hp_address}>&nbsp;
+              </div>
+            </div>
           </div>
         </div>
         <{/if}>
       </div>
-    </div>
+    </section>
     <!-- //特定商法取引法に基づく表記  -->
   </div>
   

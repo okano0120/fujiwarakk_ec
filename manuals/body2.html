@@ -1,0 +1,1429 @@
+<body>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --font-size: 14px;
+      --background: #ffffff;
+      --foreground: oklch(0.145 0 0);
+      --card: #ffffff;
+      --card-foreground: oklch(0.145 0 0);
+      --popover: oklch(1 0 0);
+      --popover-foreground: oklch(0.145 0 0);
+      --primary: #4c9f38;
+      --primary-foreground: oklch(1 0 0);
+      --secondary: #00689d;
+      --secondary-foreground: #ffffff;
+      --muted: #f5f7fa;
+      --muted-foreground: #717182;
+      --accent: #fd9d24;
+      --accent-foreground: #ffffff;
+      --destructive: #dd1367;
+      --destructive-foreground: #ffffff;
+      --border: rgba(0, 0, 0, 0.1);
+      --input: transparent;
+      --input-background: #f8fafe;
+      --switch-background: #cbced4;
+      --font-weight-medium: 500;
+      --font-weight-normal: 400;
+      --ring: oklch(0.708 0 0);
+
+      --sdgs-red: #e5243b;
+      --sdgs-dark-orange: #dda63a;
+      --sdgs-green: #4c9f38;
+      --sdgs-dark-red: #c5192d;
+      --sdgs-bright-red: #ff3a21;
+      --sdgs-light-blue: #26bde2;
+      --sdgs-yellow: #fcc30b;
+      --sdgs-purple: #a21942;
+      --sdgs-orange: #fd6925;
+      --sdgs-pink: #dd1367;
+      --sdgs-bright-orange: #fd9d24;
+      --sdgs-brown: #bf8b2e;
+      --sdgs-dark-green: #3f7e44;
+      --sdgs-blue: #0a97d9;
+      --sdgs-light-green: #56c02b;
+      --sdgs-navy: #00689d;
+      --sdgs-dark-blue: #19486a;
+    }
+
+    .bg-sdgs-red {
+      background-color: var(--sdgs-red);
+    }
+    .bg-sdgs-dark-orange {
+      background-color: var(--sdgs-dark-orange);
+    }
+    .bg-sdgs-green {
+      background-color: var(--sdgs-green);
+    }
+    .bg-sdgs-dark-red {
+      background-color: var(--sdgs-dark-red);
+    }
+    .bg-sdgs-bright-red {
+      background-color: var(--sdgs-bright-red);
+    }
+    .bg-sdgs-light-blue {
+      background-color: var(--sdgs-light-blue);
+    }
+    .bg-sdgs-yellow {
+      background-color: var(--sdgs-yellow);
+    }
+    .bg-sdgs-purple {
+      background-color: var(--sdgs-purple);
+    }
+    .bg-sdgs-orange {
+      background-color: var(--sdgs-orange);
+    }
+    .bg-sdgs-pink {
+      background-color: var(--sdgs-pink);
+    }
+    .bg-sdgs-bright-orange {
+      background-color: var(--sdgs-bright-orange);
+    }
+    .bg-sdgs-brown {
+      background-color: var(--sdgs-brown);
+    }
+    .bg-sdgs-dark-green {
+      background-color: var(--sdgs-dark-green);
+    }
+    .bg-sdgs-blue {
+      background-color: var(--sdgs-blue);
+    }
+    .bg-sdgs-light-green {
+      background-color: var(--sdgs-light-green);
+    }
+    .bg-sdgs-navy {
+      background-color: var(--sdgs-navy);
+    }
+    .bg-sdgs-dark-blue {
+      background-color: var(--sdgs-dark-blue);
+    }
+
+    .text-sdgs-red {
+      color: var(--sdgs-red);
+    }
+    .text-sdgs-dark-orange {
+      color: var(--sdgs-dark-orange);
+    }
+    .text-sdgs-green {
+      color: var(--sdgs-green);
+    }
+    .text-sdgs-dark-red {
+      color: var(--sdgs-dark-red);
+    }
+    .text-sdgs-bright-red {
+      color: var(--sdgs-bright-red);
+    }
+    .text-sdgs-light-blue {
+      color: var(--sdgs-light-blue);
+    }
+    .text-sdgs-yellow {
+      color: var(--sdgs-yellow);
+    }
+    .text-sdgs-purple {
+      color: var(--sdgs-purple);
+    }
+    .text-sdgs-orange {
+      color: var(--sdgs-orange);
+    }
+    .text-sdgs-pink {
+      color: var(--sdgs-pink);
+    }
+    .text-sdgs-bright-orange {
+      color: var(--sdgs-bright-orange);
+    }
+    .text-sdgs-brown {
+      color: var(--sdgs-brown);
+    }
+    .text-sdgs-dark-green {
+      color: var(--sdgs-dark-green);
+    }
+    .text-sdgs-blue {
+      color: var(--sdgs-blue);
+    }
+    .text-sdgs-light-green {
+      color: var(--sdgs-light-green);
+    }
+    .text-sdgs-navy {
+      color: var(--sdgs-navy);
+    }
+    .text-sdgs-dark-blue {
+      color: var(--sdgs-dark-blue);
+    }
+
+    .border-sdgs-red {
+      border-color: var(--sdgs-red);
+    }
+    .border-sdgs-dark-orange {
+      border-color: var(--sdgs-dark-orange);
+    }
+    .border-sdgs-green {
+      border-color: var(--sdgs-green);
+    }
+    .border-sdgs-dark-red {
+      border-color: var(--sdgs-dark-red);
+    }
+    .border-sdgs-bright-red {
+      border-color: var(--sdgs-bright-red);
+    }
+    .border-sdgs-light-blue {
+      border-color: var(--sdgs-light-blue);
+    }
+    .border-sdgs-yellow {
+      border-color: var(--sdgs-yellow);
+    }
+    .border-sdgs-purple {
+      border-color: var(--sdgs-purple);
+    }
+    .border-sdgs-orange {
+      border-color: var(--sdgs-orange);
+    }
+    .border-sdgs-pink {
+      border-color: var(--sdgs-pink);
+    }
+    .border-sdgs-bright-orange {
+      border-color: var(--sdgs-bright-orange);
+    }
+    .border-sdgs-brown {
+      border-color: var(--sdgs-brown);
+    }
+    .border-sdgs-dark-green {
+      border-color: var(--sdgs-dark-green);
+    }
+    .border-sdgs-blue {
+      border-color: var(--sdgs-blue);
+    }
+    .border-sdgs-light-green {
+      border-color: var(--sdgs-light-green);
+    }
+    .border-sdgs-navy {
+      border-color: var(--sdgs-navy);
+    }
+    .border-sdgs-dark-blue {
+      border-color: var(--sdgs-dark-blue);
+    }
+
+    .hover\:bg-sdgs-red:hover {
+      background-color: var(--sdgs-red);
+    }
+    .hover\:bg-sdgs-dark-orange:hover {
+      background-color: var(--sdgs-dark-orange);
+    }
+    .hover\:bg-sdgs-green:hover {
+      background-color: var(--sdgs-green);
+    }
+    .hover\:bg-sdgs-dark-red:hover {
+      background-color: var(--sdgs-dark-red);
+    }
+    .hover\:bg-sdgs-bright-red:hover {
+      background-color: var(--sdgs-bright-red);
+    }
+    .hover\:bg-sdgs-light-blue:hover {
+      background-color: var(--sdgs-light-blue);
+    }
+    .hover\:bg-sdgs-yellow:hover {
+      background-color: var(--sdgs-yellow);
+    }
+    .hover\:bg-sdgs-purple:hover {
+      background-color: var(--sdgs-purple);
+    }
+    .hover\:bg-sdgs-orange:hover {
+      background-color: var(--sdgs-orange);
+    }
+    .hover\:bg-sdgs-pink:hover {
+      background-color: var(--sdgs-pink);
+    }
+    .hover\:bg-sdgs-bright-orange:hover {
+      background-color: var(--sdgs-bright-orange);
+    }
+    .hover\:bg-sdgs-brown:hover {
+      background-color: var(--sdgs-brown);
+    }
+    .hover\:bg-sdgs-dark-green:hover {
+      background-color: var(--sdgs-dark-green);
+    }
+    .hover\:bg-sdgs-blue:hover {
+      background-color: var(--sdgs-blue);
+    }
+    .hover\:bg-sdgs-light-green:hover {
+      background-color: var(--sdgs-light-green);
+    }
+    .hover\:bg-sdgs-navy:hover {
+      background-color: var(--sdgs-navy);
+    }
+    .hover\:bg-sdgs-dark-blue:hover {
+      background-color: var(--sdgs-dark-blue);
+    }
+
+    .hover\:text-sdgs-red:hover {
+      color: var(--sdgs-red);
+    }
+    .hover\:text-sdgs-dark-orange:hover {
+      color: var(--sdgs-dark-orange);
+    }
+    .hover\:text-sdgs-green:hover {
+      color: var(--sdgs-green);
+    }
+    .hover\:text-sdgs-dark-red:hover {
+      color: var(--sdgs-dark-red);
+    }
+    .hover\:text-sdgs-bright-red:hover {
+      color: var(--sdgs-bright-red);
+    }
+    .hover\:text-sdgs-light-blue:hover {
+      color: var(--sdgs-light-blue);
+    }
+    .hover\:text-sdgs-yellow:hover {
+      color: var(--sdgs-yellow);
+    }
+    .hover\:text-sdgs-purple:hover {
+      color: var(--sdgs-purple);
+    }
+    .hover\:text-sdgs-orange:hover {
+      color: var(--sdgs-orange);
+    }
+    .hover\:text-sdgs-pink:hover {
+      color: var(--sdgs-pink);
+    }
+    .hover\:text-sdgs-bright-orange:hover {
+      color: var(--sdgs-bright-orange);
+    }
+    .hover\:text-sdgs-brown:hover {
+      color: var(--sdgs-brown);
+    }
+    .hover\:text-sdgs-dark-green:hover {
+      color: var(--sdgs-dark-green);
+    }
+    .hover\:text-sdgs-blue:hover {
+      color: var(--sdgs-blue);
+    }
+    .hover\:text-sdgs-light-green:hover {
+      color: var(--sdgs-light-green);
+    }
+    .hover\:text-sdgs-navy:hover {
+      color: var(--sdgs-navy);
+    }
+    .hover\:text-sdgs-dark-blue:hover {
+      color: var(--sdgs-dark-blue);
+    }
+  </style>
+  <script src="https://img.shop-pro.jp/tmpl_js/86/jquery.tile.js"></script>
+  <script src="https://img.shop-pro.jp/tmpl_js/86/jquery.skOuterClick.js"></script>
+
+  <script>
+    window.onload = function () {
+      var disableFileName = "colormekit-responsive.css"; // 無効にするcssのファイル名
+      for (var i = 0; i < document.styleSheets.length; i++) {
+        // ファイルパス（フルパス）
+        var styleSheetPath = document.styleSheets[i].href;
+        // フルパスからファイル名を抽出
+        var fileName = styleSheetPath.substring(
+          styleSheetPath.lastIndexOf("/") + 1,
+          styleSheetPath.length
+        );
+        if (fileName === disableFileName) {
+          // 無効にするファイル名なので無効にする
+          document.styleSheets[i].disabled = true;
+        }
+      }
+    };
+  </script>
+
+  <header class="bg-white shadow-xl relative">
+    <div class="max-w-7xl mx-auto px-4 relative">
+      <div class="flex items-center justify-between py-4">
+        <div class="flex-shrink-0">
+          <h1
+            class="text-2xl font-bold text-sdgs-navy hover:text-sdgs-blue transition-all duration-300 relative group transform hover:scale-105"
+          >
+            <a
+              class="text-2xl font-bold text-sdgs-navy hover:text-sdgs-blue transition-all duration-300 relative group transform hover:scale-105"
+              href="./"
+              >woodoff</a
+            >
+            <div
+              class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sdgs-bright-orange transition-all duration-300 group-hover:w-full"
+            ></div>
+            <div
+              class="absolute -top-1 -left-1 w-0 h-0 border-l-2 border-t-2 border-sdgs-yellow transition-all duration-300 group-hover:w-3 group-hover:h-3"
+            ></div>
+            <div
+              class="absolute -top-1 -right-1 w-0 h-0 border-r-2 border-t-2 border-sdgs-orange transition-all duration-300 group-hover:w-3 group-hover:h-3"
+            ></div>
+          </h1>
+        </div>
+
+        <div class="flex items-center">
+          <button
+            class="p-3 text-sdgs-blue hover:text-white transition-all duration-300 transform hover:scale-110 js-mega-menu-btn js-search-btn"
+            aria-label="検索"
+          >
+            <img
+              src="https://img.shop-pro.jp/tmpl_img/86/icon-search.png"
+              alt="検索"
+              class="w-5 h-5"
+            />
+          </button>
+
+          <div
+            class="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b-4 border-sdgs-orange shadow-2xl z-50 js-mega-menu-contents"
+            style="display: none"
+          >
+            <div class="max-w-7xl mx-auto p-4">
+              <div class="flex items-center">
+                <form
+                  action="https://woodoff.shop-pro.jp/"
+                  method="GET"
+                  class="flex-1 flex"
+                >
+                  <input type="hidden" name="mode" value="srh" />
+                  <div class="flex-1 me-5">
+                    <input
+                      type="text"
+                      name="keyword"
+                      placeholder="商品検索"
+                      class="w-full px-4 py-3 border-2 border-sdgs-light-blue rounded-xl focus:outline-none focus:ring-7 focus:ring-sdgs-yellow/48 focus:border-sdgs-orange text-sdgs-navy transition-all duration-300 bg-white shadow-inner h-10 me-5"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    class="border-2 px-3 py-2 text-white rounded-xl transition-all duration-300 transform text-white"
+                  >
+                    <img
+                      src="https://img.shop-pro.jp/tmpl_img/86/icon-search.png"
+                      alt="送信"
+                      class="w-5 h-5"
+                    />
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <a
+              href="https://woodoff.shop-pro.jp/cart/proxy/basket?shop_id=PA01519266&amp;shop_domain=woodoff.shop-pro.jp"
+              class="p-3 text-sdgs-purple flex items-center transition-all duration-301 transform hover:scale-110"
+            >
+              <img
+                src="https://img.shop-pro.jp/tmpl_img/86/icon-cart.png"
+                alt="カートを見る"
+                class="w-5 h-5"
+              />
+              <span
+                class="ml-2 bg-sdgs-bright-orange text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-semibold shadow-md animate-bounce"
+              >
+                1
+              </span>
+            </a>
+          </div>
+          <button
+            class="md:hidden p-2 text-sdgs-navy transition-all duration-300 hover:border-sdgs-blue transform hover:scale-110 js-navi-open"
+            aria-label="メニュー"
+          >
+            <span
+              class="block w-6 h-0.5 bg-current mb-2 transition-all duration-300"
+            ></span>
+            <span
+              class="block w-6 h-0.5 bg-current transition-all duration-300"
+            ></span>
+          </button>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto md:hidden">
+        <nav
+          class="bg-white/95 backdrop-blur-md border-t border-sdgs-yellow/50 l-main-navi is-open"
+        >
+          <div class="px-4 py-4 space-y-4">
+            <div class="flex" style="display: none">
+              <form
+                action="https://woodoff.shop-pro.jp/"
+                method="GET"
+                class="flex w-full"
+              >
+                <input type="hidden" name="mode" value="srh" />
+                <input
+                  type="text"
+                  name="keyword"
+                  placeholder="商品検索"
+                  class="flex-1 px-4 py-2 border-2 border-sdgs-light-blue rounded-l-xl focus:outline-none focus:ring-2 focus:ring-sdgs-yellow text-sdgs-navy bg-white"
+                />
+                <button
+                  type="submit"
+                  class="px-4 py-2 bg-sdgs-orange text-white rounded-r-xl transition-all duration-300"
+                >
+                  <img
+                    src="https://img.shop-pro.jp/tmpl_img/86/icon-search.png"
+                    alt="送信"
+                    class="w-5 h-5"
+                  />
+                </button>
+              </form>
+            </div>
+
+            <div
+              class="flex items-center space-x-2 py-2 text-sdgs-purple hover:text-sdgs-pink transition-colors"
+            >
+              <a
+                href="https://woodoff.shop-pro.jp/cart/proxy/basket?shop_id=PA01519266&amp;shop_domain=woodoff.shop-pro.jp"
+                class="flex items-center space-x-2"
+              >
+                <img
+                  src="https://img.shop-pro.jp/tmpl_img/86/icon-cart.png"
+                  alt="カートを見る"
+                  class="w-5 h-5"
+                />
+                <span>カートを見る (1)</span>
+              </a>
+            </div>
+
+            <ul class="space-y-3">
+              <li class="border-b border-gray-200 pb-3">
+                <div class="text-sm font-semibold text-sdgs-navy mb-2">
+                  CATEGORY
+                </div>
+                <button
+                  class="w-full text-left py-2 px-3 bg-sdgs-green hover:bg-sdgs-dark-green text-white rounded-lg transition-all duration-300 js-mega-menu-btn"
+                >
+                  CATEGORY
+                </button>
+                <div
+                  class="mt-2 space-y-1 js-mega-menu-contents"
+                  style="display: none"
+                >
+                  <a
+                    href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2965645&amp;csid=0"
+                    class="block py-2 px-4 text-gray-600 hover:text-white hover:bg-sdgs-blue rounded-lg transition-all duration-300"
+                  >
+                    初期カテゴリー
+                  </a>
+                  <a
+                    href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966425&amp;csid=0"
+                    class="block py-2 px-4 text-gray-600 hover:text-white hover:bg-sdgs-blue rounded-lg transition-all duration-300"
+                  >
+                    蔵戸
+                  </a>
+                  <a
+                    href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966426&amp;csid=0"
+                    class="block py-2 px-4 text-gray-600 hover:text-white hover:bg-sdgs-blue rounded-lg transition-all duration-300"
+                  >
+                    格子戸
+                  </a>
+                  <a
+                    href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966427&amp;csid=0"
+                    class="block py-2 px-4 text-gray-600 hover:text-white hover:bg-sdgs-blue rounded-lg transition-all duration-300"
+                  >
+                    ガラス建具
+                  </a>
+                  <a
+                    href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966428&amp;csid=0"
+                    class="block py-2 px-4 text-gray-600 hover:text-white hover:bg-sdgs-blue rounded-lg transition-all duration-300"
+                  >
+                    障子・ふすま
+                  </a>
+                  <a
+                    href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966429&amp;csid=0"
+                    class="block py-2 px-4 text-gray-600 hover:text-white hover:bg-sdgs-blue rounded-lg transition-all duration-300"
+                  >
+                    照明器具
+                  </a>
+                  <a
+                    href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966430&amp;csid=0"
+                    class="block py-2 px-4 text-gray-600 hover:text-white hover:bg-sdgs-blue rounded-lg transition-all duration-300"
+                  >
+                    古材
+                  </a>
+                  <a
+                    href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966431&amp;csid=0"
+                    class="block py-2 px-4 text-gray-600 hover:text-white hover:bg-sdgs-blue rounded-lg transition-all duration-300"
+                  >
+                    古材板
+                  </a>
+                  <a
+                    href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966432&amp;csid=0"
+                    class="block py-2 px-4 text-gray-600 hover:text-white hover:bg-sdgs-blue rounded-lg transition-all duration-300"
+                  >
+                    椅子
+                  </a>
+                  <a
+                    href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966434&amp;csid=0"
+                    class="block py-2 px-4 text-gray-600 hover:text-white hover:bg-sdgs-blue rounded-lg transition-all duration-300"
+                  >
+                    板戸・舞良戸
+                  </a>
+                  <a
+                    href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966435&amp;csid=0"
+                    class="block py-2 px-4 text-gray-600 hover:text-white hover:bg-sdgs-blue rounded-lg transition-all duration-300"
+                  >
+                    古家具
+                  </a>
+                  <a
+                    href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966436&amp;csid=0"
+                    class="block py-2 px-4 text-gray-600 hover:text-white hover:bg-sdgs-blue rounded-lg transition-all duration-300"
+                  >
+                    オリジナル商品
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="hidden md:block max-w-7xl mx-auto px-4 py-8">
+        <nav>
+          <ul class="grid grid-cols-3 gap-4">
+            <li class="relative">
+              <button
+                class="block text-white rounded-xl px-4 py-3 text-center transition-all duration-300 transform hover:scale-105 hover:shadow-lg border-2 bg-sdgs-green hover:bg-sdgs-dark-green border-sdgs-green hover:border-sdgs-dark-green w-full js-mega-menu-btn"
+              >
+                CATEGORY
+              </button>
+              <div
+                class="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-2 border-sdgs-green shadow-2xl z-50 rounded-xl mt-2 js-mega-menu-contents"
+                style="display: none"
+              >
+                <ul class="p-4 space-y-2">
+                  <li>
+                    <a
+                      href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2965645&amp;csid=0"
+                      class="block py-2 px-3 text-gray-600 hover:text-white hover:bg-sdgs-green rounded-lg transition-all duration-300"
+                    >
+                      初期カテゴリー
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966425&amp;csid=0"
+                      class="block py-2 px-3 text-gray-600 hover:text-white hover:bg-sdgs-green rounded-lg transition-all duration-300"
+                    >
+                      蔵戸
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966426&amp;csid=0"
+                      class="block py-2 px-3 text-gray-600 hover:text-white hover:bg-sdgs-green rounded-lg transition-all duration-300"
+                    >
+                      格子戸
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966427&amp;csid=0"
+                      class="block py-2 px-3 text-gray-600 hover:text-white hover:bg-sdgs-green rounded-lg transition-all duration-300"
+                    >
+                      ガラス建具
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966428&amp;csid=0"
+                      class="block py-2 px-3 text-gray-600 hover:text-white hover:bg-sdgs-green rounded-lg transition-all duration-300"
+                    >
+                      障子・ふすま
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966429&amp;csid=0"
+                      class="block py-2 px-3 text-gray-600 hover:text-white hover:bg-sdgs-green rounded-lg transition-all duration-300"
+                    >
+                      照明器具
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966430&amp;csid=0"
+                      class="block py-2 px-3 text-gray-600 hover:text-white hover:bg-sdgs-green rounded-lg transition-all duration-300"
+                    >
+                      古材
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966431&amp;csid=0"
+                      class="block py-2 px-3 text-gray-600 hover:text-white hover:bg-sdgs-green rounded-lg transition-all duration-300"
+                    >
+                      古材板
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966432&amp;csid=0"
+                      class="block py-2 px-3 text-gray-600 hover:text-white hover:bg-sdgs-green rounded-lg transition-all duration-300"
+                    >
+                      椅子
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966434&amp;csid=0"
+                      class="block py-2 px-3 text-gray-600 hover:text-white hover:bg-sdgs-green rounded-lg transition-all duration-300"
+                    >
+                      板戸・舞良戸
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966435&amp;csid=0"
+                      class="block py-2 px-3 text-gray-600 hover:text-white hover:bg-sdgs-green rounded-lg transition-all duration-300"
+                    >
+                      古家具
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://woodoff.shop-pro.jp/?mode=cate&amp;cbid=2966436&amp;csid=0"
+                      class="block py-2 px-3 text-gray-600 hover:text-white hover:bg-sdgs-green rounded-lg transition-all duration-300"
+                    >
+                      オリジナル商品
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div
+        class="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 js-navi-close"
+        style="display: none"
+      ></div>
+    </div>
+  </header>
+
+  <div
+    class="min-h-screen bg-gradient-to-b from-white via-gray-50/30 to-white top"
+  >
+    <link
+      href="https://img.shop-pro.jp/tmpl_js/86/slick.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://img.shop-pro.jp/tmpl_js/86/slick-theme.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <div
+      class="min-h-screen bg-gradient-to-b from-white via-gray-50/30 to-white"
+    >
+      <div class="max-w-7xl mx-auto px-4 py-8"></div>
+
+      <div class="max-w-7xl mx-auto px-4 py-16">
+        <div class="text-center mb-16">
+          <h2 class="mb-6">
+            <span
+              class="block text-4xl font-bold bg-gradient-to-r from-sdgs-green to-sdgs-light-green bg-clip-text text-transparent mb-3"
+            >
+              NEW ARRIVAL
+            </span>
+            <span class="text-xl text-gray-600">新着</span>
+          </h2>
+          <div class="flex justify-center space-x-2 mb-4">
+            <div class="w-4 h-1 bg-sdgs-red rounded-full"></div>
+            <div class="w-4 h-1 bg-sdgs-orange rounded-full"></div>
+            <div class="w-4 h-1 bg-sdgs-yellow rounded-full"></div>
+            <div class="w-4 h-1 bg-sdgs-green rounded-full"></div>
+            <div class="w-4 h-1 bg-sdgs-light-blue rounded-full"></div>
+            <div class="w-4 h-1 bg-sdgs-blue rounded-full"></div>
+            <div class="w-4 h-1 bg-sdgs-purple rounded-full"></div>
+          </div>
+        </div>
+
+        <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <li class="group">
+            <div
+              class="bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative"
+            >
+              <div class="aspect-square overflow-hidden rounded-t-xl">
+                <a href="?pid=188291982" class="block">
+                  <img
+                    src="https://img21.shop-pro.jp/PA01519/266/product/188291982_th.jpg?cmsp_timestamp=20250904211442"
+                    alt="テスト"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </a>
+              </div>
+
+              <div
+                class="absolute top-3 right-3 bg-sdgs-green text-white px-3 py-1 rounded-full shadow-lg transform rotate-12 group-hover:rotate-0 transition-transform duration-300"
+              >
+                <span class="font-bold text-sm">33,000円(税込)</span>
+              </div>
+
+              <div class="p-5">
+                <div class="text-center mb-4">
+                  <a
+                    href="?pid=188291982"
+                    class="text-gray-700 hover:text-sdgs-green transition-colors font-medium text-sm leading-relaxed"
+                  >
+                    テスト
+                  </a>
+                </div>
+                <div class="text-center">
+                  <div class="text-gray-700 font-semibold">33,000円(税込)</div>
+                </div>
+                <div class="text-center mt-3 text-xs text-gray-600">
+                  テスト商品です。〇〇な場面でお使いいただけます。
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- TOPページ下部バナーを表示する場合はこちらのコメントアウトを外してください。
+<div class="p-bnr u-contents">
+        <ul class="p-bnr-list">
+    <li class="p-bnr-list__item">
+      <a class="u-img-scale" href="https://discoversample3.shop-pro.jp/?mode=grp&gid=2533104">
+        <img src="https://img.shop-pro.jp/tmpl_img/86/bnr-sample.png" alt="" />
+      </a>
+    </li>
+    <li class="p-bnr-list__item">
+      <a class="u-img-scale" href="https://discoversample3.shop-pro.jp/?mode=grp&gid=2533105">
+        <img src="https://img.shop-pro.jp/tmpl_img/86/bnr-sample.png" alt="" />
+      </a>
+    </li>
+    <li class="p-bnr-list__item">
+      <a class="u-img-scale" href="https://discoversample3.shop-pro.jp/?mode=grp&gid=2533106">
+        <img src="https://img.shop-pro.jp/tmpl_img/86/bnr-sample.png" alt="" />
+      </a>
+    </li>
+  </ul>
+  </div>
+TOPページ下部バナーを表示する場合はこちらのコメントアウトを外してください。 -->
+      <script src="https://img.shop-pro.jp/tmpl_js/86/common.js"></script>
+      <script src="https://img.shop-pro.jp/tmpl_js/86/slick.min.js"></script>
+      <script type="text/javascript">
+        $(document).on("ready", function () {
+          $(".js-ranking-slider").slick({
+            autoplay: false,
+            autoplaySpeed: 3000,
+            arrows: true,
+            dots: false,
+            infinite: true,
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            responsive: [
+              {
+                breakpoint: 768,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 2,
+                },
+              },
+            ],
+          });
+        });
+      </script>
+
+      <script type="text/javascript">
+        // もっと見るをクリックしたら、そのリスト内全ての商品を表示する
+        (function () {
+          $(".js-display-button").on("click", function () {
+            var $clickedButtonUnit = $(this).parent();
+            var $productList = $clickedButtonUnit.prev().children(".is-hidden");
+            $productList.removeClass("is-hidden");
+            $clickedButtonUnit.remove();
+          });
+        })();
+      </script>
+    </div>
+  </div>
+
+  <div class="bg-gradient-to-b from-gray-50/50 to-white">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <div class="mb-16">
+        <h2 class="text-3xl font-bold text-center mb-4">
+          <span class="text-sdgs-navy">CHECKED ITEMS</span>
+          <div class="text-lg text-sdgs-blue font-medium">
+            最近チェックした商品
+          </div>
+          <div
+            class="w-24 h-1 bg-gradient-to-r from-sdgs-bright-orange to-sdgs-yellow rounded-full mx-auto mt-3"
+          ></div>
+        </h2>
+        <div class="overflow-x-auto">
+          <ul class="flex space-x-6 pb-4">
+            <li class="flex-shrink-0 w-48">
+              <div
+                class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group overflow-hidden"
+              >
+                <div class="aspect-square overflow-hidden rounded-t-2xl">
+                  <a href="?pid=188291982" class="block h-full">
+                    <img
+                      src="https://img21.shop-pro.jp/PA01519/266/product/188291982_th.jpg?cmsp_timestamp=20250904211442"
+                      alt="テスト"
+                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </a>
+                </div>
+                <div class="p-4">
+                  <div class="text-lg font-bold text-sdgs-navy">
+                    33,000円(税込)
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+        <div
+          class="bg-white rounded-2xl shadow-xl p-8 border-t-4 border-sdgs-blue hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3"
+        >
+          <h2 class="text-2xl font-bold text-gray-800 mb-6">
+            <span class="text-sdgs-blue">CALENDAR</span>
+            <div class="text-lg text-sdgs-green font-medium">カレンダー</div>
+            <div
+              class="w-16 h-1 bg-gradient-to-r from-sdgs-bright-orange to-sdgs-yellow rounded-full mt-3"
+            ></div>
+          </h2>
+          <div class="space-y-4">
+            <div class="bg-gray-50 rounded-xl p-4">
+              <table class="tbl_calendar">
+                <caption>
+                  2025年9月
+                </caption>
+                <tbody>
+                  <tr>
+                    <th class="sun">日</th>
+                    <th>月</th>
+                    <th>火</th>
+                    <th>水</th>
+                    <th>木</th>
+                    <th>金</th>
+                    <th class="sat">土</th>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td class="mon">1</td>
+                    <td class="tue">2</td>
+                    <td class="wed">3</td>
+                    <td class="thu">4</td>
+                    <td class="fri">5</td>
+                    <td class="sat">6</td>
+                  </tr>
+                  <tr>
+                    <td class="sun">7</td>
+                    <td class="mon">8</td>
+                    <td class="tue">9</td>
+                    <td class="wed">10</td>
+                    <td class="thu">11</td>
+                    <td class="fri">12</td>
+                    <td class="sat">13</td>
+                  </tr>
+                  <tr>
+                    <td class="sun">14</td>
+                    <td class="mon holiday">15</td>
+                    <td class="tue">16</td>
+                    <td class="wed">17</td>
+                    <td class="thu">18</td>
+                    <td class="fri">19</td>
+                    <td class="sat">20</td>
+                  </tr>
+                  <tr>
+                    <td class="sun">21</td>
+                    <td class="mon">22</td>
+                    <td class="tue holiday">23</td>
+                    <td class="wed">24</td>
+                    <td class="thu">25</td>
+                    <td class="fri">26</td>
+                    <td class="sat">27</td>
+                  </tr>
+                  <tr>
+                    <td class="sun">28</td>
+                    <td class="mon">29</td>
+                    <td class="tue">30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2 class="sr-only">ショッピングガイド</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-sdgs-blue hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 group relative overflow-hidden js-matchHeight"
+            style="height: 457px"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-sdgs-blue/5 to-sdgs-light-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            ></div>
+
+            <div class="relative z-10">
+              <div class="flex items-start space-x-4 mb-6">
+                <div
+                  class="flex-shrink-0 p-3 bg-gradient-to-r from-sdgs-blue to-sdgs-light-blue rounded-xl shadow-lg transform group-hover:scale-110 transition-all duration-300"
+                >
+                  <img
+                    src="https://img.shop-pro.jp/tmpl_img/86/shopguide-icon-shipping.png"
+                    alt=""
+                    class="w-8 h-8 filter brightness-0 invert"
+                  />
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-800 mb-2 text-lg">SHIPPING</h3>
+                  <p class="text-sm text-sdgs-blue font-medium">
+                    配送・送料について
+                  </p>
+                </div>
+              </div>
+              <dl class="space-y-3">
+                <div>
+                  <dt class="font-bold text-gray-800 mb-1">クロネコヤマト</dt>
+                  <dd class="text-sm text-gray-600 leading-relaxed"></dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-sdgs-green hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 group relative overflow-hidden js-matchHeight"
+            style="height: 457px"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-sdgs-green/5 to-sdgs-light-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            ></div>
+
+            <div class="relative z-10">
+              <div class="flex items-start space-x-4 mb-6">
+                <div
+                  class="flex-shrink-0 p-3 bg-gradient-to-r from-sdgs-green to-sdgs-light-green rounded-xl shadow-lg transform group-hover:scale-110 transition-all duration-300"
+                >
+                  <img
+                    src="https://img.shop-pro.jp/tmpl_img/86/shopguide-icon-return.png"
+                    alt=""
+                    class="w-8 h-8 filter brightness-0 invert"
+                  />
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-800 mb-2 text-lg">RETURN</h3>
+                  <p class="text-sm text-sdgs-green font-medium">
+                    返品について
+                  </p>
+                </div>
+              </div>
+              <dl class="space-y-4">
+                <div>
+                  <dt class="font-bold text-gray-800 mb-1">不良品</dt>
+                  <dd class="text-sm text-gray-600 leading-relaxed">
+                    商品到着後速やかにご連絡ください。商品に欠陥がある場合を除き、返品には応じかねますのでご了承ください。
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-bold text-gray-800 mb-1">返品期限</dt>
+                  <dd class="text-sm text-gray-600 leading-relaxed">
+                    商品到着後７日以内とさせていただきます。
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-bold text-gray-800 mb-1">返品送料</dt>
+                  <dd class="text-sm text-gray-600 leading-relaxed">
+                    お客様都合による返品につきましてはお客様のご負担とさせていただきます。不良品に該当する場合は当方で負担いたします。
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-sdgs-orange hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 group relative overflow-hidden js-matchHeight"
+            style="height: 457px"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-sdgs-orange/5 to-sdgs-yellow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            ></div>
+
+            <div class="relative z-10">
+              <div class="flex items-start space-x-4 mb-6">
+                <div
+                  class="flex-shrink-0 p-3 bg-gradient-to-r from-sdgs-orange to-sdgs-yellow rounded-xl shadow-lg transform group-hover:scale-110 transition-all duration-300"
+                >
+                  <img
+                    src="https://img.shop-pro.jp/tmpl_img/86/shopguide-icon-payment.png"
+                    alt=""
+                    class="w-8 h-8 filter brightness-0 invert"
+                  />
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-800 mb-2 text-lg">PAYMENT</h3>
+                  <p class="text-sm text-sdgs-orange font-medium">
+                    お支払いについて
+                  </p>
+                </div>
+              </div>
+              <dl class="space-y-3">
+                <div>
+                  <dt class="font-bold text-gray-800 mb-1">
+                    商品代引き（ゆうパック・ゆうメール）
+                  </dt>
+                  <dd class="text-sm text-gray-600 leading-relaxed"></dd>
+                </div>
+                <div>
+                  <dt class="font-bold text-gray-800 mb-1">商品代引</dt>
+                  <dd class="text-sm text-gray-600 leading-relaxed"></dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-gray-100 relative overflow-hidden">
+    <div
+      class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-sdgs-red via-sdgs-orange via-sdgs-yellow via-sdgs-green via-sdgs-blue to-sdgs-purple"
+    ></div>
+
+    <div
+      class="absolute top-8 left-16 w-12 h-12 bg-sdgs-light-blue/20 rounded-full animate-pulse"
+    ></div>
+    <div
+      class="absolute top-24 right-20 w-8 h-8 bg-sdgs-pink/20 rounded-full animate-pulse"
+      style="animation-delay: 1s"
+    ></div>
+    <div
+      class="absolute bottom-20 left-1/4 w-6 h-6 bg-sdgs-yellow/30 rounded-full animate-pulse"
+      style="animation-delay: 2s"
+    ></div>
+    <div
+      class="absolute bottom-8 right-1/3 w-10 h-10 bg-sdgs-light-green/20 rounded-full animate-pulse"
+      style="animation-delay: 0.5s"
+    ></div>
+
+    <div class="max-w-7xl mx-auto px-4 py-16 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <div class="mb-8">
+            <a
+              href="./"
+              class="text-3xl font-bold text-sdgs-dark-green hover:text-sdgs-green transition-all duration-300 inline-block relative group"
+            >
+              woodoff
+              <div
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-sdgs-bright-orange transition-all duration-300 group-hover:w-full"
+              ></div>
+            </a>
+            <div
+              class="w-16 h-1 bg-gradient-to-r from-sdgs-bright-orange to-sdgs-yellow rounded-full mt-3 shadow-sm"
+            ></div>
+          </div>
+          <div class="flex space-x-6"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="./"
+                  class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-green border border-transparent hover:border-sdgs-green"
+                >
+                  ホーム
+                  <div
+                    class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-bright-orange transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"
+                  ></div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://woodoff.shop-pro.jp/?mode=sk#delivery"
+                  class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-blue border border-transparent hover:border-sdgs-blue"
+                >
+                  配送・送料について
+                  <div
+                    class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-yellow transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"
+                  ></div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://woodoff.shop-pro.jp/?mode=sk#return"
+                  class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-purple border border-transparent hover:border-sdgs-purple"
+                >
+                  返品について
+                  <div
+                    class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-light-green transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"
+                  ></div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://woodoff.shop-pro.jp/?mode=sk#payment"
+                  class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-orange border border-transparent hover:border-sdgs-orange"
+                >
+                  支払い方法について
+                  <div
+                    class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-pink transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"
+                  ></div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="https://woodoff.shop-pro.jp/?mode=sk#info"
+                  class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-pink border border-transparent hover:border-sdgs-pink"
+                >
+                  特定商取引法に基づく表記
+                  <div
+                    class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-light-blue transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"
+                  ></div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://woodoff.shop-pro.jp/?mode=privacy"
+                  class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-navy border border-transparent hover:border-sdgs-navy"
+                >
+                  プライバシーポリシー
+                  <div
+                    class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-yellow transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"
+                  ></div>
+                </a>
+              </li>
+              <li>
+                <span class="text-gray-600 px-3 py-2 inline-block">
+                  <a
+                    href="https://woodoff.shop-pro.jp/?mode=rss"
+                    class="hover:text-sdgs-light-blue transition-colors relative group"
+                  >
+                    RSS
+                    <div
+                      class="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-sdgs-light-blue transition-all duration-300 group-hover:w-full"
+                    ></div>
+                  </a>
+                  /
+                  <a
+                    href="https://woodoff.shop-pro.jp/?mode=atom"
+                    class="hover:text-sdgs-light-green transition-colors ml-1 relative group"
+                  >
+                    ATOM
+                    <div
+                      class="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-sdgs-light-green transition-all duration-300 group-hover:w-full"
+                    ></div>
+                  </a>
+                </span>
+              </li>
+              <li>
+                <a
+                  href="https://woodoff.shop-pro.jp/cart/proxy/basket?shop_id=PA01519266&amp;shop_domain=woodoff.shop-pro.jp"
+                  class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-yellow border border-transparent hover:border-sdgs-yellow"
+                >
+                  カートを見る
+                  <div
+                    class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-red transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"
+                  ></div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://woodoff.shop-pro.jp/customer/inquiries/new"
+                  class="text-gray-600 hover:text-white transition-all duration-300 relative group inline-block px-3 py-2 rounded-lg hover:bg-sdgs-red border border-transparent hover:border-sdgs-red"
+                >
+                  お問い合わせ
+                  <div
+                    class="absolute -bottom-0.5 left-3 w-0 h-0.5 bg-sdgs-blue transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]"
+                  ></div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="bg-gray-800 text-white py-4">
+    <div
+      class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between"
+    >
+      <div class="text-sm text-gray-300 mb-2 md:mb-0">
+        <a href="https://shop-pro.jp" target="_blank">カラーミーショップ</a>
+        Copyright (C) 2005-2025
+        <a href="https://pepabo.com/" target="_blank">GMOペパボ株式会社</a> All
+        Rights Reserved.
+      </div>
+      <div class="text-sm">
+        <a
+          href="https://shop-pro.jp"
+          target="_blank"
+          class="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
+        >
+          <span>Powered by</span>
+          <img
+            src="https://img.shop-pro.jp/tmpl_img/86/powered.png"
+            alt="カラーミーショップ"
+            class="h-4"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://img.shop-pro.jp/tmpl_js/86/jquery.biggerlink.min.js"></script>
+  <script src="https://img.shop-pro.jp/tmpl_js/86/jquery.matchHeight-min.js"></script>
+  <script src="https://img.shop-pro.jp/tmpl_js/86/what-input.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      //category search
+      $(".js-mega-menu-btn").on("click", function () {
+        if ($(this).hasClass("is-on")) {
+          $(this).removeClass("is-on");
+          $(this).next(".js-mega-menu-contents").fadeOut(200, "swing");
+        } else {
+          $(".js-mega-menu-btn").removeClass("is-on");
+          $(".js-mega-menu-btn").next().fadeOut(200, "swing");
+          $(this).addClass("is-on");
+          $(this).next(".js-mega-menu-contents").fadeIn(200, "swing");
+        }
+      });
+      $(".js-search-close").on("click", function () {
+        $(".l-header-search__contents").fadeOut(200, "swing");
+        $(".l-header-search__btn").removeClass("is-on");
+      });
+      $(".js-search-btn").on("click", function () {
+        $(".l-main-navi").removeClass("is-open");
+        $(".js-navi-open").removeClass("is-on");
+      });
+
+      //hamburger
+      $(".js-navi-open,.js-navi-close").on("click", function () {
+        $(".l-header-search__contents").fadeOut(200, "swing");
+        $(".l-header-search__btn").removeClass("is-on");
+        $(".l-header").toggleClass("is-open");
+        $(".l-main-navi").toggleClass("is-open");
+        $(".l-menu-btn").toggleClass("is-on");
+        $(".l-main-navi-overlay").toggleClass("is-on");
+      });
+    });
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      var header = $(".l-header");
+      var headerHeight = header.outerHeight();
+      var navPos = $(".l-main-navi").offset().top;
+
+      $(window).on("load scroll", function () {
+        var value = $(this).scrollTop();
+        if (value > navPos) {
+          $(".l-header").addClass("is-fixed");
+          $(".l-main").css("margin-top", headerHeight);
+        } else {
+          $(".l-header").removeClass("is-fixed");
+          $(".l-main").css("margin-top", "0");
+        }
+      });
+      $(window).on("load resize", function () {
+        if ($(window).width() < 1030) {
+          $("body").css("margin-top", header.outerHeight());
+        } else {
+          $("body").css("margin-top", "");
+        }
+      });
+    });
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(".js-bigger").biggerlink();
+    });
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(".js-matchHeight").matchHeight();
+    });
+  </script>
+
+  <script>
+    $(function () {
+      function window_size_switch_func() {
+        if ($(window).width() >= 768) {
+          // product option switch -> table
+          $("#prd-opt-table").html($(".prd-opt-table").html());
+          $("#prd-opt-table table").addClass("table table-bordered");
+          $("#prd-opt-select").empty();
+        } else {
+          // product option switch -> select
+          $("#prd-opt-table").empty();
+          if ($("#prd-opt-select > *").size() == 0) {
+            $("#prd-opt-select").append($(".prd-opt-select").html());
+          }
+        }
+      }
+      window_size_switch_func();
+      $(window).load(function () {
+        $(".history-unit").tile();
+      });
+      $(window).resize(function () {
+        window_size_switch_func();
+        $(".history-unit").tile();
+      });
+    });
+  </script>
+  <script
+    type="text/javascript"
+    src="https://woodoff.shop-pro.jp/js/cart.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://woodoff.shop-pro.jp/js/async_cart_in.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://woodoff.shop-pro.jp/js/product_stock.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://woodoff.shop-pro.jp/js/js.cookie.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://woodoff.shop-pro.jp/js/favorite_button.js"
+  ></script>
+  <div>
+    <div
+      style="
+        display: none;
+        position: fixed;
+        top: 30px;
+        width: auto;
+        max-width: 100%;
+        text-align: center;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 99999999;
+      "
+    >
+      <div
+        style="
+          display: inline-block;
+          font-size: 14px;
+          font-weight: bold;
+          border: 1px solid rgb(240, 195, 109);
+          background-color: rgb(249, 237, 190);
+          padding: 0px 10px;
+          border-radius: 2px;
+          box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;
+        "
+      ></div>
+    </div>
+  </div>
+</body>

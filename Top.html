@@ -1,7 +1,7 @@
 <link href="https://img.shop-pro.jp/tmpl_js/86/slick.css" rel="stylesheet" type="text/css">
 <link href="https://img.shop-pro.jp/tmpl_js/86/slick-theme.css" rel="stylesheet" type="text/css">
 
-<div class="min-h-screen bg-gradient-to-b from-white via-gray-50/30 to-white">
+<div class="bg-gradient-to-b from-white via-gray-50/30 to-white">
 
 <!-- スライダー -->
 <div class="max-w-7xl mx-auto px-4 py-8">
@@ -153,7 +153,7 @@
 <div class="max-w-7xl mx-auto px-4 py-16">
   <div class="text-center mb-16">
     <h2 class="mb-6">
-      <span class="block text-4xl font-bold bg-gradient-to-r from-sdgs-green to-sdgs-light-green bg-clip-text text-transparent mb-3">
+      <span class="block text-4xl font-bold bg-gradient-to-r from-sdgs-green to-sdgs-light-green bg-clip-text mb-3">
         NEW ARRIVAL
       </span>
       <span class="text-xl text-gray-600">新着</span>
@@ -173,7 +173,7 @@
     <{section name=num loop=$new_item}>
     <li class="group<{if $smarty.section.num.iteration > 8}> is-hidden<{/if}>">
       <div class="bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative">
-        <div class="aspect-square overflow-hidden rounded-t-xl">
+        <div class="overflow-hidden rounded-t-xl">
           <a href="<{$new_item[num].link_url}>" class="block">
             <{if $new_item[num].img_url != ""}>
             <img src="<{$new_item[num].img_url}>" alt="<{$new_item[num].name|escape:'html'}>" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
@@ -261,7 +261,7 @@
     <{section name=num loop=$seller}>
     <div class="px-4<{if $smarty.section.num.iteration > 6}> is-hidden<{/if}>">
       <div class="bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative">
-        <div class="aspect-square overflow-hidden rounded-t-xl">
+        <div class="overflow-hidden rounded-t-xl">
           <a href="<{$seller[num].link_url}>" class="block">
             <{if $seller[num].img_url != ""}>
             <img src="<{$seller[num].img_url}>" alt="<{$seller[num].name|escape:'html'}>" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
